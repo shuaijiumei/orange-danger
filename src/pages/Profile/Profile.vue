@@ -6,19 +6,19 @@
 
 <script lang="ts">
 import {
-    defineComponent,
-    ref
+  defineComponent,
+  ref
 } from 'vue'
 
 export default defineComponent({
-    name: "Profile",
-    setup() {
-    const name = ref("Profile")
+  name: 'Profile',
+  setup () {
+    const name = ref('Profile')
 
     return {
-        name
+      name
     }
-    }
+  }
 })
 
 </script>

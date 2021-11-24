@@ -7,10 +7,10 @@
 import RequestOptions = UniApp.RequestOptions;
 import RequestSuccessCallbackResult = UniApp.RequestSuccessCallbackResult;
 import GeneralCallbackResult = UniApp.GeneralCallbackResult;
-import {ref, Ref, UnwrapRef} from "vue";
-import {isResponseOk, isResponseString, throwResponseError} from "@/utils/index";
+import { ref, Ref, UnwrapRef } from 'vue'
+import { isResponseOk, isResponseString, throwResponseError } from '@/utils/index'
 
-const apiUrl = 'http://127.0.0.1:4523/mock/469263/api'
+const apiUrl = process.env.ORANG_DANGER_MOCK_API
 
 // 规定返回 data 类型的泛型 P
 // state 请求中为 true 请求完成 为 false
@@ -25,64 +25,63 @@ export interface RequestOptionsBetter<T> extends Omit<RequestOptions, 'data'> {
 }
 
 // T 是传入参数的类型  P是返回参数的类型: 注：只考虑data 里面的 articleId 之类的细节类型
-export const http = <T,P>(config: RequestOptionsBetter<T>) => {
-    return new Promise<RequestSuccessCallbackResult>(((resolve, reject) => {
-        uni.request({
-            url: apiUrl+ config.url,
-            data: config?.data,
-            method: config?.method || 'GET',
-            timeout: config?.timeout || 60000,
-            header: config?.header,
-            dataType: config?.dataType || 'json',
-            responseType: config?.responseType || 'text',
-            sslVerify: config?.sslVerify || true,
-            withCredentials: config?.withCredentials || false,
-            firstIpv4: config?.firstIpv4 || false,
+export const http = <T, P>(config: RequestOptionsBetter<T>) => {
+  return new Promise<RequestSuccessCallbackResult>((resolve, reject) => {
+    uni.request({
+      url: apiUrl + config.url,
+      data: config?.data,
+      method: config?.method || 'GET',
+      timeout: config?.timeout || 60000,
+      header: config?.header,
+      dataType: config?.dataType || 'json',
+      responseType: config?.responseType || 'text',
+      sslVerify: config?.sslVerify || true,
+      withCredentials: config?.withCredentials || false,
+      firstIpv4: config?.firstIpv4 || false,
 
-            // 注意： 只要服务器返回都会进入 success 回调
-            success: (res) => resolve(res),
-            fail: (err) => reject(err)
-        })
-    }))
+      // 注意： 只要服务器返回都会进入 success 回调
+      success: (res) => resolve(res),
+      fail: (err) => reject(err)
+    })
+  })
 }
 
 // vue hook 函数
-export const useHttp= <T,P>(config: RequestOptionsBetter<T>):HttpResponse<P | null> => {
-    const state = ref(true)
-    const data = ref<P | null>(null)
+export const useHttp = <T, P>(config: RequestOptionsBetter<T>):HttpResponse<P | null> => {
+  const state = ref(true)
+  const data = ref<P | null>(null)
 
-    http(config).then(res => {
-        console.log('i am useHttp')
-        console.log(res)
-        if (isResponseOk(res.data)) {
-            data.value = isResponseString(res.data)
-        } else {
-            // 处理响应成功 但 请求失败的错误
-            throwResponseError(res.data).
-                catch(err => {
-                // 弹出错误提示文案
-                uni.showToast({
-                    title: err.msg,
-                    icon: 'error'
-                })
-            })
-        }
-    }).catch(err => {
-        // 处理响应失败的错误
-        uni.showToast({
-            title: '请检测网络',
+  http(config).then(res => {
+    console.log('i am useHttp')
+    console.log(res)
+    if (isResponseOk(res.data)) {
+      data.value = isResponseString(res.data)
+    } else {
+      // 处理响应成功 但 请求失败的错误
+      throwResponseError(res.data)
+        .catch(err => {
+          // 弹出错误提示文案
+          uni.showToast({
+            title: err.msg,
             icon: 'error'
+          })
         })
-
-        data.value = null
-    }).finally(() => {
-        // 未得到服务端返回
-        state.value = false
+    }
+  }).catch(err => {
+    // 处理响应失败的错误
+    uni.showToast({
+      title: '请检测网络',
+      icon: 'error'
     })
 
-    return {
-        state,
-        data
-    }
+    data.value = null
+  }).finally(() => {
+    // 未得到服务端返回
+    state.value = false
+  })
 
+  return {
+    state,
+    data
+  }
 }

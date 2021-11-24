@@ -9,7 +9,7 @@
           </van-button>
         </view>
         <view v-for="item in data">
-          {{ item.articleAuthor }}
+          <view :key="item.articleId">{{ item.articleAuthor }}</view>
         </view>
     </view>
 </template>
@@ -18,8 +18,8 @@
 import {
   defineComponent,
   ref, watch
-} from "vue";
-    import {RequestOptionsBetter, useHttp} from "@/utils/http";
+} from 'vue'
+import { RequestOptionsBetter, useHttp } from '@/utils/http'
 
     interface GetArticlesProps {
       pageNum: number,
@@ -37,35 +37,36 @@ import {
       articleTitle: string
     }
 
-    export default defineComponent({
-        setup() {
-            const title = ref('hello world')
+export default defineComponent({
+  setup () {
+    const title = ref('hello world')
 
-            const handleClick = ():void => {
-              console.log('click')
-            }
+    const handleClick = ():void => {
+      console.log('click')
+    }
 
-            const getArticlesConfig: RequestOptionsBetter<GetArticlesProps> = {
-              url: '/articles',
-              data: {
-                apifoxResponseId: 9751052
-              }
-            }
+    const getArticlesConfig: RequestOptionsBetter<GetArticlesProps> = {
+      url: '/articles',
+      data: {
+        pageNum: 5,
+        pageSize: 10
+      }
+    }
 
-            const {state, data} = useHttp<GetArticlesProps,ArticlesDataType>(getArticlesConfig)
+    const { state, data } = useHttp<GetArticlesProps, ArticlesDataType>(getArticlesConfig)
 
-            watch(data, () => {
-              console.log(data.value)
-            })
+    watch(data, () => {
+      console.log(data.value)
+    })
 
-            return {
-                title,
-              handleClick,
-              state,
-              data
-            };
-        },
-    });
+    return {
+      title,
+      handleClick,
+      state,
+      data
+    }
+  }
+})
 </script>
 
 <style scoped>
