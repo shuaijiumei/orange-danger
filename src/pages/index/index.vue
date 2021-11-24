@@ -8,7 +8,7 @@
             你好
           </van-button>
         </view>
-        <view v-for="item in articleList">
+        <view v-for="item in data">
           {{ item.articleAuthor }}
         </view>
     </view>
@@ -22,9 +22,8 @@ import {
     import {RequestOptionsBetter, useHttp} from "@/utils/http";
 
     interface GetArticlesProps {
-      pageNum?: number,
-      pageSize?: number,
-      apifoxResponseId?: number
+      pageNum: number,
+      pageSize: number,
     }
 
     interface ArticlesDataType {
@@ -41,7 +40,6 @@ import {
     export default defineComponent({
         setup() {
             const title = ref('hello world')
-            const articleList = ref<ArticlesDataType | null>()
 
             const handleClick = ():void => {
               console.log('click')
@@ -58,14 +56,13 @@ import {
 
             watch(data, () => {
               console.log(data.value)
-              articleList.value = data.value
             })
 
             return {
                 title,
               handleClick,
               state,
-              articleList
+              data
             };
         },
     });
