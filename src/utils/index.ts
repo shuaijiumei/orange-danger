@@ -15,6 +15,7 @@ export const isResponseString = (data: string | AnyObject) => {
   }
 }
 
+// 响应是否成功
 export const isResponseOk = (data: string | AnyObject) => {
   if (typeof data === 'string') {
     return false
@@ -23,7 +24,7 @@ export const isResponseOk = (data: string | AnyObject) => {
   }
 }
 
-// 抛出错误到 catch 里 处理
+// 响应成功 但返回失败
 export const throwResponseError = (data: string | AnyObject) => {
   if (typeof data === 'string') {
     return Promise.reject({
@@ -35,3 +36,33 @@ export const throwResponseError = (data: string | AnyObject) => {
     })
   }
 }
+
+// 解决时间戳上有一个0的问题
+export const dealOneZero = (time: number):string => {
+  if ( time < 10) {
+    return `0${time}`
+  } else {
+    return String(time)
+  }
+}
+
+// Unix 时间戳到 正常时间
+export const unixTimeToNormalTime = (time: string, formType: number = 0 ): string => {
+  const d = new Date(Number.parseInt(time, 10) * 1000)
+
+  let t : string
+
+  switch (formType){
+    // 年-月-日 格式字符串
+    case 0: t = `${d.getFullYear()}-${dealOneZero(d.getMonth()+1)}-${dealOneZero(d.getDate())}`
+          break
+    // 小时:分钟:秒 格式字符串
+    case 1: t = `${d.getHours()}:${dealOneZero(d.getMinutes())}:${dealOneZero(d.getSeconds())}`
+          break
+    default: t = '未成功识别'
+  }
+
+  return t
+
+}
+

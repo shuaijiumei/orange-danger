@@ -55,10 +55,6 @@ export default defineComponent({
 
     const { state, data } = useHttp<GetArticlesProps, ArticlesDataType>(getArticlesConfig)
 
-    watch(data, () => {
-      console.log(data.value)
-    })
-
     return {
       title,
       handleClick,

@@ -6,11 +6,10 @@
  */
 import RequestOptions = UniApp.RequestOptions;
 import RequestSuccessCallbackResult = UniApp.RequestSuccessCallbackResult;
-import GeneralCallbackResult = UniApp.GeneralCallbackResult;
 import { ref, Ref, UnwrapRef } from 'vue'
 import { isResponseOk, isResponseString, throwResponseError } from '@/utils/index'
 
-const apiUrl = process.env.ORANG_DANGER_MOCK_API
+const apiUrl = 'http://127.0.0.1:4523/mock/469263/api'
 
 // 规定返回 data 类型的泛型 P
 // state 请求中为 true 请求完成 为 false
@@ -52,14 +51,13 @@ export const useHttp = <T, P>(config: RequestOptionsBetter<T>):HttpResponse<P | 
   const data = ref<P | null>(null)
 
   http(config).then(res => {
-    console.log('i am useHttp')
-    console.log(res)
     if (isResponseOk(res.data)) {
       data.value = isResponseString(res.data)
     } else {
       // 处理响应成功 但 请求失败的错误
       throwResponseError(res.data)
         .catch(err => {
+          console.log(err)
           // 弹出错误提示文案
           uni.showToast({
             title: err.msg,
@@ -69,8 +67,9 @@ export const useHttp = <T, P>(config: RequestOptionsBetter<T>):HttpResponse<P | 
     }
   }).catch(err => {
     // 处理响应失败的错误
+    console.error(err)
     uni.showToast({
-      title: '请检测网络',
+      title: '请求失败',
       icon: 'error'
     })
 

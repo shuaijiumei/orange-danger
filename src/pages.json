@@ -57,9 +57,6 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
-		"usingComponents": {
-			"van-toast": "/wxcomponents/@vant/dist/toast/index"
-		}
+		"backgroundColor": "#F8F8F8"
 	}
 }
