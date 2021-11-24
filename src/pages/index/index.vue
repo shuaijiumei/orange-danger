@@ -1,39 +1,76 @@
 <template>
     <view class="content">
-        <image class="logo" src="../../static/logo.png"></image>
         <view>
             <text class="title">{{ title }}</text>
+        </view>
+        <view>
+          <van-button type="default" :loading="state" @click="handleClick">
+            你好
+          </van-button>
+        </view>
+        <view v-for="item in articleList">
+          {{ item.articleAuthor }}
         </view>
     </view>
 </template>
 
 <script lang="ts">
-    import {
-        defineComponent
-    } from "vue";
+import {
+  defineComponent,
+  ref, watch
+} from "vue";
+    import {RequestOptionsBetter, useHttp} from "@/utils/http";
+
+    interface GetArticlesProps {
+      pageNum?: number,
+      pageSize?: number,
+      apifoxResponseId?: number
+    }
+
+    interface ArticlesDataType {
+      articleAuthor: string,
+      articleContent: string,
+      articleId: string,
+      articleInfo: string,
+      articlePraise: number,
+      articlePubTime: string,
+      articleReadTimes: number,
+      articleTitle: string
+    }
+
     export default defineComponent({
         setup() {
+            const title = ref('hello world')
+            const articleList = ref<ArticlesDataType | null>()
+
+            const handleClick = ():void => {
+              console.log('click')
+            }
+
+            const getArticlesConfig: RequestOptionsBetter<GetArticlesProps> = {
+              url: '/articles',
+              data: {
+                apifoxResponseId: 9751052
+              }
+            }
+
+            const {state, data} = useHttp<GetArticlesProps,ArticlesDataType>(getArticlesConfig)
+
+            watch(data, () => {
+              console.log(data.value)
+              articleList.value = data.value
+            })
+
             return {
-                title: "hello",
+                title,
+              handleClick,
+              state,
+              articleList
             };
         },
     });
 </script>
 
-<style>
-    .content {
-        text-align: center;
-        height: 400upx;
-    }
+<style scoped>
 
-    .logo {
-        height: 200upx;
-        width: 200upx;
-        margin-top: 200upx;
-    }
-
-    .title {
-        font-size: 36upx;
-        color: #8f8f94;
-    }
 </style>
