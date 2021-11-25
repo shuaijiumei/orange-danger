@@ -38,7 +38,7 @@ export const throwResponseError = (data: string | AnyObject) => {
 }
 
 // 解决时间戳上有一个0的问题
-export const dealOneZero = (time: number):string => {
+const dealOneZero = (time: number):string => {
   if ( time < 10) {
     return `0${time}`
   } else {
@@ -66,3 +66,9 @@ export const unixTimeToNormalTime = (time: string, formType: number = 0 ): strin
 
 }
 
+export const showError = (title: string) => {
+  uni.showToast({
+    title,
+    icon: 'error'
+  })
+}

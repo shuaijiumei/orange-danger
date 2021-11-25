@@ -2,6 +2,7 @@
 node_modules/
 unpackage/
 dist/
+Mock_Serve/
 
 # local env files
 .env.local

@@ -7,7 +7,7 @@
 import RequestOptions = UniApp.RequestOptions;
 import RequestSuccessCallbackResult = UniApp.RequestSuccessCallbackResult;
 import { ref, Ref, UnwrapRef } from 'vue'
-import { isResponseOk, isResponseString, throwResponseError } from '@/utils/index'
+import {isResponseOk, isResponseString, showError, throwResponseError} from '@/utils/index'
 
 const apiUrl = 'http://127.0.0.1:4523/mock/469263/api'
 
@@ -68,10 +68,7 @@ export const useHttp = <T, P>(config: RequestOptionsBetter<T>):HttpResponse<P | 
   }).catch(err => {
     // 处理响应失败的错误
     console.error(err)
-    uni.showToast({
-      title: '请求失败',
-      icon: 'error'
-    })
+    showError('数据请求失败')
 
     data.value = null
   }).finally(() => {

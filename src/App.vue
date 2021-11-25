@@ -2,13 +2,11 @@
 import {
   defineComponent
 } from 'vue'
+import {userLogin} from "@/utils/User";
 export default defineComponent({
-  onLaunch () {
-  },
-  onShow () {
-  },
-  onHide () {
-  }
+setup() {
+  userLogin()
+}
 })
 </script>
 <style>
