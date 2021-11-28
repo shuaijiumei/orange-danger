@@ -72,3 +72,7 @@ export const showError = (title: string) => {
     icon: 'error'
   })
 }
+
+export const yearTime2Month = (time: string): string => {
+  return time.split('-')[1] +'-'+ time.split('-')[2]
+}

@@ -5,7 +5,7 @@
  * example 例子
  */
 import GetUserProfileRes = UniApp.GetUserProfileRes;
-import {showError} from "@/utils/index";
+import {showError, yearTime2Month} from "@/utils/index";
 import GetLocationSuccess = UniApp.GetLocationSuccess;
 import {Ref, ref, UnwrapRef} from "vue";
 import RequestSuccessCallbackResult = UniApp.RequestSuccessCallbackResult;
@@ -206,11 +206,14 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
 
 }
 
-export const useGetWeatherInfo = (): Ref<UnwrapRef<WeatherDataType[] | null>> => {
-    const weatherInfo = ref<WeatherDataType[] | null>(null)
+export const useGetWeatherInfo = (): Ref<UnwrapRef<WeatherDataType[] | undefined>> => {
+    const weatherInfo = ref<WeatherDataType[]>()
 
     getWeatherInfo().then(res => {
-        weatherInfo.value = res
+        weatherInfo.value = res?.map(item => {
+            item.fxDate = yearTime2Month(item.fxDate)
+            return item
+        } )
     }).catch(e => {
         console.log(e)
         showError('获取天气信息失败')

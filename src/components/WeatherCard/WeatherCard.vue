@@ -1,11 +1,22 @@
 <template>
-  <view>
-    i am {{ name}}
-    <view v-for="item in weatherInfo">
-      {{item.fxDate}}
-      {{item.sunrise}}
-      {{item.moonPhase}}
+  <view class="container">
+    <view class="top">
+      <view class="top-left">
+
+      </view>
+      <view class="top-right">
+
+      </view>
     </view>
+
+    <view class="bottom">
+      <view  v-for="item in weatherInfo" class="bottom-item" :key="item.fxDate">
+        <text>{{item.fxDate}}</text>
+        <i class="qi-{{item.iconDay}}-fill .icon-color" />
+        <text>{{item.tempMin}}~{{item.tempMax}}℃</text>
+      </view>
+    </view>
+
   </view>
 </template>
 
@@ -33,6 +44,9 @@ export default defineComponent({
 
 </script>
 
+
 <style scoped>
+@import "./qweather-icons.css";
+@import "./index.css";
 
 </style>
