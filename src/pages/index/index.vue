@@ -1,9 +1,6 @@
 <template>
     <view class="content">
         <view>
-            <text class="title">{{ title }}</text>
-        </view>
-        <view>
           <van-button type="default" :loading="state" @click="handleClick">
             你好
           </van-button>
@@ -11,22 +8,25 @@
         <view v-for="item in data">
           <view :key="item.articleId">{{ item.articleAuthor }}</view>
         </view>
+      <WeatherCard :weatherInfo="weatherInfo" />
     </view>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
-  ref, watch
+  ref
 } from 'vue'
+import WeatherCard from "@/components/WeatherCard/WeatherCard.vue";
 import { RequestOptionsBetter, useHttp } from '@/utils/http'
+import {useGetWeatherInfo} from "@/utils/User";
 
-    interface GetArticlesProps {
+interface GetArticlesProps {
       pageNum: number,
       pageSize: number,
     }
 
-    interface ArticlesDataType {
+interface ArticlesDataType {
       articleAuthor: string,
       articleContent: string,
       articleId: string,
@@ -35,11 +35,14 @@ import { RequestOptionsBetter, useHttp } from '@/utils/http'
       articlePubTime: string,
       articleReadTimes: number,
       articleTitle: string
-    }
+}
 
 export default defineComponent({
-  setup () {
-    const title = ref('hello world')
+  components: {
+    WeatherCard
+  },
+  setup() {
+    const weatherInfo = useGetWeatherInfo()
 
     const handleClick = ():void => {
       console.log('click')
@@ -54,12 +57,13 @@ export default defineComponent({
     }
 
     const { state, data } = useHttp<GetArticlesProps, ArticlesDataType>(getArticlesConfig)
+    console.log(data)
 
     return {
-      title,
       handleClick,
       state,
-      data
+      data,
+      weatherInfo
     }
   }
 })

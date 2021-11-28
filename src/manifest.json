@@ -48,10 +48,20 @@
 
     },
     "mp-weixin": { /* 小程序特有相关 */
-        "usingComponents":true,
-        "appid": "wxebfc3cb67909ff74",
+        "usingComponents":{
+            "van-toast": "./wxcomponents/@vant/dist/toast/index"
+        },
+        "appid": "wxc06a4bc38fdc7d51",
         "setting" : {
         	"urlCheck" : false
+        },
+        "permission": {
+            "scope.userLocation": {
+                "desc": "你的位置信息将用于小程序位置接口的效果展示" // 高速公路行驶持续后台定位
+            },
+            "scope.userInfo": {
+                "desc": "你的信息将用"
+            }
         }
     },
     "mp-alipay" : {

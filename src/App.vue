@@ -2,10 +2,10 @@
 import {
   defineComponent
 } from 'vue'
-import {userLogin} from "@/utils/User";
+import {useGetOpenId} from "@/utils/User";
 export default defineComponent({
 setup() {
-  userLogin()
+  useGetOpenId()
 }
 })
 </script>
