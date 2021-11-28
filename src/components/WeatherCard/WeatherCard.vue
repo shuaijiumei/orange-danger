@@ -12,7 +12,7 @@
     <view class="bottom">
       <view  v-for="item in weatherInfo" class="bottom-item" :key="item.fxDate">
         <text>{{item.fxDate}}</text>
-        <i class="qi-{{item.iconDay}}-fill .icon-color" />
+        <i :class="'qi-'+item.iconDay"></i>
         <text>{{item.tempMin}}~{{item.tempMax}}℃</text>
       </view>
     </view>
