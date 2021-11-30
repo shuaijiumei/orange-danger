@@ -185,7 +185,7 @@ export const useGetOpenId = () => {
                 // 获取 openId
                 const {data} = await getUserOpenId(res)
 
-                // 存入 app 全局变量
+                // todo 存入 app 全局变量
                 const app = getApp()
                 app.globalData.openId = data
             } catch (e) {
