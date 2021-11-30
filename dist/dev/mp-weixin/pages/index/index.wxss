@@ -1,0 +1,15 @@
+.content.data-v-57280228 {
+  width: 100vw;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+  align-items: center;
+}
+.swiper.data-v-57280228{
+  width: 95vw;
+  height: 25vh;
+}
+

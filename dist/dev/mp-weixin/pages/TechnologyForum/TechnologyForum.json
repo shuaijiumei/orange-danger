@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "van-button": "/wxcomponents/@vant/dist/button/index"
+  }
+}

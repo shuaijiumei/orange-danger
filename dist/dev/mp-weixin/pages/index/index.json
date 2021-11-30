@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "weather-card": "/components/WeatherCard/WeatherCard",
+    "van-button": "/wxcomponents/@vant/dist/button/index"
+  }
+}
