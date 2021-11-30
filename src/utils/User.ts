@@ -5,10 +5,11 @@
  * example 例子
  */
 import GetUserProfileRes = UniApp.GetUserProfileRes;
-import {showError, yearTime2Month} from "@/utils/index";
+import {isResponseString, showError, yearTime2Month} from "@/utils/index";
 import GetLocationSuccess = UniApp.GetLocationSuccess;
 import {Ref, ref, UnwrapRef} from "vue";
 import RequestSuccessCallbackResult = UniApp.RequestSuccessCallbackResult;
+import {http} from "@/utils/http";
 
 // 天气接口返回结果
 export interface WeatherDataType {
@@ -38,16 +39,26 @@ export interface WeatherDataType {
     pressure: string,
     vis: string,
     cloud: string,
-    uvIndex: string
+    uvIndex: string,
+    color?: string,
+    name?: string,
+    now?: string
 }
 
 
 // todo 更改为真实后台
 const api = 'http://47.113.188.14:10086'
-// todo 审核完成更改为 7d
-const weatherApi = 'https://devapi.qweather.com/v7/weather/3d'
+//
+const weatherApi = 'https://devapi.qweather.com/v7/weather/'
 
 const mockKey = '17c47d633f504ce5afc1217010e42fed'
+
+const weatherColorMap = new Map([
+    ['多云', '#2980b9'],
+    ['晴', 'gold'],
+    ['阴', 'grey'],
+    ['雨', 'white']
+])
 
 export interface UserAuthorizeData {confirm: boolean, cancel: boolean}
 
@@ -153,10 +164,10 @@ export const getUserLocation = () => {
 }
 
 // 封装天气预报api 返回值不确定， 可能是 403， 所以给any类型
-export const getWeather = (longitude: number,latitude:number ):any => {
+export const getWeather = (longitude: number,latitude:number, now=false ):any => {
     return new Promise((resolve, reject) => {
         uni.request({
-            url: `${weatherApi}?key=${mockKey}&location=${longitude},${latitude}`,
+            url: `${weatherApi}${now ? 'now':'7d'}?key=${mockKey}&location=${longitude},${latitude}`,
             method: 'GET',
 
             success: res => resolve(res),
@@ -188,6 +199,21 @@ export const useGetOpenId = () => {
 
 }
 
+// 通过longitude latitude 获得地址信息
+export const getLocationMoreDetail = (longitude: number, latitude: number):Promise<RequestSuccessCallbackResult> => {
+    return new Promise((resolve, reject) => {
+        uni.request({
+            url: `https://geoapi.qweather.com/v2/city/lookup?location=${longitude},${latitude}&key=${mockKey}`,
+
+            success: res => resolve(res),
+            fail: err => reject(err)
+        })
+    })
+}
+
+// 获得实时天气信息
+
+
 // 获得天气信息
 export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
 
@@ -196,7 +222,18 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
         await userAuthorize()
         console.log('i am position')
         const {longitude, latitude} = await getUserLocation()
-        const { data } = await getWeather(longitude, latitude)
+        // 获得地址信息， 存入数组
+        // todo 修改获得数据数组的第一个元素，增加实时天气
+        const addressData = isResponseString(await getLocationMoreDetail(longitude,latitude))
+
+        // 获得天气信息
+        const data = isResponseString(await getWeather(longitude, latitude))
+        // 获得当前天气信息
+        const nowData = isResponseString(await getWeather(longitude, latitude, true))
+
+        data.daily[0].name = addressData.location[0].name
+        data.daily[0].now = nowData.now.temp
+        data.daily[0].text = nowData.now.text
 
         return data.daily
 
@@ -206,18 +243,24 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
 
 }
 
-export const useGetWeatherInfo = (): Ref<UnwrapRef<WeatherDataType[] | undefined>> => {
+export const useGetWeatherInfo = () => {
     const weatherInfo = ref<WeatherDataType[]>()
+    const state = ref(false)
 
     getWeatherInfo().then(res => {
+        console.log(res)
+        // 只有数组第一个元素有地址信息
         weatherInfo.value = res?.map(item => {
             item.fxDate = yearTime2Month(item.fxDate)
+            item.color = weatherColorMap.get(item.textDay)
             return item
         } )
     }).catch(e => {
         console.log(e)
-        showError('获取天气信息失败')
+        showError('获取天气失败')
+    }).finally(() => {
+        state.value = true
     })
 
-    return weatherInfo
+    return {weatherInfo, state}
 }

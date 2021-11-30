@@ -1,14 +1,17 @@
 <template>
     <view class="content">
-        <view>
-          <van-button type="default" :loading="state" @click="handleClick">
-            你好
-          </van-button>
-        </view>
-        <view v-for="item in data">
-          <view :key="item.articleId">{{ item.articleAuthor }}</view>
-        </view>
-      <WeatherCard :weatherInfo="weatherInfo" />
+        <swiper class="swiper" indicator-dots autoplay>
+          <swiper-item>
+            <img src="@/static/1.jpg" alt="1">
+          </swiper-item>
+          <swiper-item>
+            <img src="@/static/2.png" alt="2">
+          </swiper-item>
+          <swiper-item>
+            <img src="@/static/3.png" alt="3">
+          </swiper-item>
+        </swiper>
+      <WeatherCard :weatherInfo="weatherInfo" :state="weatherInfoState" />
     </view>
 </template>
 
@@ -42,7 +45,7 @@ export default defineComponent({
     WeatherCard
   },
   setup() {
-    const weatherInfo = useGetWeatherInfo()
+    const {weatherInfo, state:weatherInfoState} = useGetWeatherInfo()
 
     const handleClick = ():void => {
       console.log('click')
@@ -63,12 +66,13 @@ export default defineComponent({
       handleClick,
       state,
       data,
-      weatherInfo
+      weatherInfo,
+      weatherInfoState
     }
   }
 })
 </script>
 
 <style scoped>
-
+@import "./index.css";
 </style>
