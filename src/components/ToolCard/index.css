@@ -1,0 +1,14 @@
+.content {
+  height: 20vh;
+  width: 95vw;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+
+  border-radius: 5px;
+
+
+  margin-bottom: 2vh;
+}

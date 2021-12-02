@@ -47,7 +47,7 @@ const dealOneZero = (time: number):string => {
 }
 
 // Unix 时间戳到 正常时间
-export const unixTimeToNormalTime = (time: string, formType: number = 0 ): string => {
+export const unixTime2NormalTime = (time: string, formType: number = 0 ): string => {
   const d = new Date(Number.parseInt(time, 10) * 1000)
 
   let t : string
@@ -56,8 +56,10 @@ export const unixTimeToNormalTime = (time: string, formType: number = 0 ): strin
     // 年-月-日 格式字符串
     case 0: t = `${d.getFullYear()}-${dealOneZero(d.getMonth()+1)}-${dealOneZero(d.getDate())}`
           break
-    // 小时:分钟:秒 格式字符串
-    case 1: t = `${d.getHours()}:${dealOneZero(d.getMinutes())}:${dealOneZero(d.getSeconds())}`
+    // 小时:分钟 格式字符串
+    case 1: t = `${d.getHours()}:${dealOneZero(d.getMinutes())}`
+          break
+    case 2: t = `${d.getFullYear()}年${dealOneZero(d.getMonth()+1)}月${dealOneZero(d.getDate())}日 ${d.getHours()}:${dealOneZero(d.getMinutes())}`
           break
     default: t = '未成功识别'
   }

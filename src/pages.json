@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app",
+				"navigationBarTitleText": "病虫害识别",
 				"usingComponents": {
 					"van-button":"/wxcomponents/@vant/dist/button/index"
 				}
@@ -12,7 +12,7 @@
 		{
 			"path": "pages/TechnologyForum/TechnologyForum",
 			"style": {
-				"navigationBarTitleText": "uni-app",
+				"navigationBarTitleText": "技术论坛",
 				"usingComponents": {
 					"van-button":"/wxcomponents/@vant/dist/button/index"
 				}
@@ -21,7 +21,25 @@
 		{
 			"path": "pages/Profile/Profile",
 			"style": {
-				"navigationBarTitleText": "uni-app",
+				"navigationBarTitleText": "我的",
+				"usingComponents": {
+					"van-button":"/wxcomponents/@vant/dist/button/index"
+				}
+			}
+		},
+		{
+			"path": "pages/BugScan/BugScan",
+			"style": {
+				"navigationBarTitleText": "病虫害识别",
+				"usingComponents": {
+					"van-button":"/wxcomponents/@vant/dist/button/index"
+				}
+			}
+		},
+		{
+			"path": "pages/BugSearch/BugSearch",
+			"style": {
+				"navigationBarTitleText": "解决措施",
 				"usingComponents": {
 					"van-button":"/wxcomponents/@vant/dist/button/index"
 				}

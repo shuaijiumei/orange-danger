@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/TechnologyForum/TechnologyForum",
-    "pages/Profile/Profile"
+    "pages/Profile/Profile",
+    "pages/BugScan/BugScan",
+    "pages/BugSearch/BugSearch"
   ],
   "subPackages": [],
   "window": {
@@ -40,11 +42,7 @@
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
-    },
-    "scope.userInfo": {
-      "desc": "你的信息将用"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

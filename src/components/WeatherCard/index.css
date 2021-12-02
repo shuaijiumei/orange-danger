@@ -1,6 +1,6 @@
 .container {
   width: 95vw;
-  height: 30vh;
+  height: 25vh;
   background: linear-gradient(to top left,#74b9ff, #0984e3);
 
   border-radius: 5px;
@@ -8,7 +8,9 @@
   box-shadow: 3px 3px 5px #74b9ff;
 
   box-sizing: border-box;
+  margin-bottom: 2vh;
 }
+
 
 .top {
   width: 100%;

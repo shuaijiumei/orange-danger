@@ -40,20 +40,17 @@ import {
   defineComponent,
   ref,
 } from 'vue'
+import {useGetWeatherInfo} from "@/utils/User";
 
 export default defineComponent({
   name: "WeatherCard",
-  props: {
-    // 动态数据, 直接使用, 类型参考 WeatherDataType
-    weatherInfo: Object,
-    weatherInfoState: Boolean
-  },
 
-  setup(props) {
-    const name = ref("WeatherCard")
+  setup() {
+    const {weatherInfo, state:weatherInfoState} = useGetWeatherInfo()
 
     return {
-      name,
+      weatherInfo,
+      weatherInfoState
     }
   }
 })

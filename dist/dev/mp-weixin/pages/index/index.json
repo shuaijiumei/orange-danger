@@ -1,7 +1,10 @@
 {
-  "navigationBarTitleText": "uni-app",
+  "navigationBarTitleText": "病虫害识别",
   "usingComponents": {
+    "img-swiper": "/components/ImgSwiper/ImgSwiper",
+    "tool-card": "/components/ToolCard/ToolCard",
     "weather-card": "/components/WeatherCard/WeatherCard",
+    "article-card": "/components/ArticleCard/ArticleCard",
     "van-button": "/wxcomponents/@vant/dist/button/index"
   }
 }

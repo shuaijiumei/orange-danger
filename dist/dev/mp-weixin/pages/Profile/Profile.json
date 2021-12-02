@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "uni-app",
+  "navigationBarTitleText": "我的",
   "usingComponents": {
     "van-button": "/wxcomponents/@vant/dist/button/index"
   }

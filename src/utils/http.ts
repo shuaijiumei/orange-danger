@@ -46,13 +46,17 @@ export const http = <T, P>(config: RequestOptionsBetter<T>) => {
 }
 
 // vue hook 函数
-export const useHttp = <T, P>(config: RequestOptionsBetter<T>):HttpResponse<P | null> => {
+export const useHttp = <T, P>(config: RequestOptionsBetter<T>, fun?: Function):HttpResponse<P | null> => {
   const state = ref(true)
   const data = ref<P | null>(null)
 
   http(config).then(res => {
+    // console.log(res)
     if (isResponseOk(res.data)) {
       data.value = isResponseString(res.data)
+      if (fun instanceof Function) {
+        data.value = fun(data.value)
+      }
     } else {
       // 处理响应成功 但 请求失败的错误
       throwResponseError(res.data)

@@ -8,8 +8,12 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.swiper.data-v-57280228{
-  width: 95vw;
-  height: 25vh;
+.title.data-v-57280228 {
+  font-weight: 600;
+  font-size: 36rpx;
+
+  align-self: start;
+  margin-bottom: 1vh;
+  margin-left: 6vw;
 }
 

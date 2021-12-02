@@ -8,8 +8,11 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.title {
+  font-weight: 600;
+  font-size: 36rpx;
 
-.swiper{
-  width: 95vw;
-  height: 25vh;
+  align-self: start;
+  margin-bottom: 1vh;
+  margin-left: 6vw;
 }

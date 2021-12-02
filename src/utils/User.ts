@@ -48,7 +48,7 @@ export interface WeatherDataType {
 
 // todo 更改为真实后台
 const api = 'http://47.113.188.14:10086'
-//
+
 const weatherApi = 'https://devapi.qweather.com/v7/weather/'
 
 const mockKey = '17c47d633f504ce5afc1217010e42fed'
@@ -220,7 +220,6 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
     try {
         // 获得用户授权
         await userAuthorize()
-        console.log('i am position')
         const {longitude, latitude} = await getUserLocation()
         // 获得地址信息， 存入数组
         // todo 修改获得数据数组的第一个元素，增加实时天气
@@ -248,7 +247,6 @@ export const useGetWeatherInfo = () => {
     const state = ref(false)
 
     getWeatherInfo().then(res => {
-        console.log(res)
         // 只有数组第一个元素有地址信息
         weatherInfo.value = res?.map(item => {
             item.fxDate = yearTime2Month(item.fxDate)

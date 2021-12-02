@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "uni-app",
+  "navigationBarTitleText": "技术论坛",
   "usingComponents": {
     "van-button": "/wxcomponents/@vant/dist/button/index"
   }

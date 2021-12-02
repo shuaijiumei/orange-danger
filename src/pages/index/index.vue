@@ -1,17 +1,11 @@
 <template>
     <view class="content">
-        <swiper class="swiper" indicator-dots autoplay>
-          <swiper-item>
-            <img src="@/static/1.jpg" alt="1">
-          </swiper-item>
-          <swiper-item>
-            <img src="@/static/2.png" alt="2">
-          </swiper-item>
-          <swiper-item>
-            <img src="@/static/3.png" alt="3">
-          </swiper-item>
-        </swiper>
-      <WeatherCard :weatherInfo="weatherInfo" :state="weatherInfoState" />
+      <ImgSwiper />
+      <ToolCard />
+      <view class="title">近期天气</view>
+      <WeatherCard />
+      <view class="title">近期热点</view>
+      <ArticleCard />
     </view>
 </template>
 
@@ -21,8 +15,10 @@ import {
   ref
 } from 'vue'
 import WeatherCard from "@/components/WeatherCard/WeatherCard.vue";
+import ImgSwiper from "@/components/ImgSwiper/ImgSwiper.vue";
+import ToolCard from "@/components/ToolCard/ToolCard.vue";
+import ArticleCard from "@/components/ArticleCard/ArticleCard.vue";
 import { RequestOptionsBetter, useHttp } from '@/utils/http'
-import {useGetWeatherInfo} from "@/utils/User";
 
 interface GetArticlesProps {
       pageNum: number,
@@ -42,14 +38,12 @@ interface ArticlesDataType {
 
 export default defineComponent({
   components: {
-    WeatherCard
+    WeatherCard,
+    ImgSwiper,
+    ToolCard,
+    ArticleCard
   },
   setup() {
-    const {weatherInfo, state:weatherInfoState} = useGetWeatherInfo()
-
-    const handleClick = ():void => {
-      console.log('click')
-    }
 
     const getArticlesConfig: RequestOptionsBetter<GetArticlesProps> = {
       url: '/articles',
@@ -60,14 +54,10 @@ export default defineComponent({
     }
 
     const { state, data } = useHttp<GetArticlesProps, ArticlesDataType>(getArticlesConfig)
-    console.log(data)
 
     return {
-      handleClick,
       state,
-      data,
-      weatherInfo,
-      weatherInfoState
+      data
     }
   }
 })
