@@ -57,7 +57,7 @@ const weatherColorMap = new Map([
     ['多云', '#2980b9'],
     ['晴', 'gold'],
     ['阴', 'grey'],
-    ['雨', 'white']
+    ['小雨', 'white']
 ])
 
 export interface UserAuthorizeData {confirm: boolean, cancel: boolean}
@@ -100,7 +100,7 @@ export const getUserOpenId = (res: UserCodeData) => {
 
 // 获取用户授权
 export const userAuthorize = (): Promise<any> => {
-    return  new Promise<UserAuthorizeData>((resolve, reject) => {
+    return  new Promise<any>((resolve, reject) => {
         // todo 判断是否授权
         uni.getSetting({
             success(res) {
@@ -113,7 +113,10 @@ export const userAuthorize = (): Promise<any> => {
             scope: 'scope.userLocation',
 
             success: res => resolve(res),
-            fail: err => reject(err)
+            fail: () => {
+                resolve(null)
+                showError('请授权使用')
+            }
         })
 
     })
@@ -158,7 +161,18 @@ export const getUserLocation = () => {
     return new Promise<GetLocationSuccess>((resolve, reject) => {
         uni.getLocation({
             success: res => resolve(res),
-            fail: err => reject(err)
+            fail: () => {
+                // 给未授权用户展示默认地址
+                resolve({
+                    latitude:39.90960456049752,
+                    longitude: 116.3972282409668,
+                    speed: 0,
+                    accuracy: 0,
+                    altitude: 0,
+                    verticalAccuracy: 0,
+                    horizontalAccuracy: 0,
+                })
+            }
         })
     } )
 }
@@ -222,7 +236,6 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
         await userAuthorize()
         const {longitude, latitude} = await getUserLocation()
         // 获得地址信息， 存入数组
-        // todo 修改获得数据数组的第一个元素，增加实时天气
         const addressData = isResponseString(await getLocationMoreDetail(longitude,latitude))
 
         // 获得天气信息
@@ -247,6 +260,7 @@ export const useGetWeatherInfo = () => {
     const state = ref(false)
 
     getWeatherInfo().then(res => {
+        console.log(res)
         // 只有数组第一个元素有地址信息
         weatherInfo.value = res?.map(item => {
             item.fxDate = yearTime2Month(item.fxDate)

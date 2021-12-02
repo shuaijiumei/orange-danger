@@ -165,7 +165,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
-/* harmony import */ var _utils_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/http */ 24);
 
 
 var WeatherCard = function WeatherCard() {
@@ -192,7 +191,6 @@ var ArticleCard = function ArticleCard() {
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
-
 /* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_0__["defineComponent"])({
   components: {
     WeatherCard: WeatherCard,
@@ -201,22 +199,7 @@ var ArticleCard = function ArticleCard() {
     ArticleCard: ArticleCard
   },
   setup: function setup() {
-    var getArticlesConfig = {
-      url: '/articles',
-      data: {
-        pageNum: 5,
-        pageSize: 10
-      }
-    };
-
-    var _useHttp = Object(_utils_http__WEBPACK_IMPORTED_MODULE_1__["useHttp"])(getArticlesConfig),
-        state = _useHttp.state,
-        data = _useHttp.data;
-
-    return {
-      state: state,
-      data: data
-    };
+    return {};
   }
 }));
 

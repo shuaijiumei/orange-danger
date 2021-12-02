@@ -5,6 +5,8 @@
     "tool-card": "/components/ToolCard/ToolCard",
     "weather-card": "/components/WeatherCard/WeatherCard",
     "article-card": "/components/ArticleCard/ArticleCard",
-    "van-button": "/wxcomponents/@vant/dist/button/index"
+    "van-button": "/wxcomponents/@vant/dist/button/index",
+    "van-toast": "/wxcomponents/@vant/dist/toast/index",
+    "van-loading": "/wxcomponents/@vant/dist/loading/index"
   }
 }

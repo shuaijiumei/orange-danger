@@ -47,7 +47,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var api = 'http://47.113.188.14:10086';
 var weatherApi = 'https://devapi.qweather.com/v7/weather/';
 var mockKey = '17c47d633f504ce5afc1217010e42fed';
-var weatherColorMap = new Map([['多云', '#2980b9'], ['晴', 'gold'], ['阴', 'grey'], ['雨', 'white']]); // 获得用户的code
+var weatherColorMap = new Map([['多云', '#2980b9'], ['晴', 'gold'], ['阴', 'grey'], ['小雨', 'white']]); // 获得用户的code
 
 var getUserCode = function getUserCode() {
   return new Promise(function (resolve, reject) {
@@ -100,8 +100,9 @@ var userAuthorize = function userAuthorize() {
       success: function success(res) {
         return resolve(res);
       },
-      fail: function fail(err) {
-        return reject(err);
+      fail: function fail() {
+        resolve(null);
+        Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["showError"])('请授权使用');
       }
     });
   });
@@ -150,8 +151,17 @@ var getUserLocation = function getUserLocation() {
       success: function success(res) {
         return resolve(res);
       },
-      fail: function fail(err) {
-        return reject(err);
+      fail: function fail() {
+        // 给未授权用户展示默认地址
+        resolve({
+          latitude: 39.90960456049752,
+          longitude: 116.3972282409668,
+          speed: 0,
+          accuracy: 0,
+          altitude: 0,
+          verticalAccuracy: 0,
+          horizontalAccuracy: 0
+        });
       }
     });
   });
@@ -300,7 +310,8 @@ var useGetWeatherInfo = function useGetWeatherInfo() {
   var weatherInfo = Object(vue__WEBPACK_IMPORTED_MODULE_2__["ref"])();
   var state = Object(vue__WEBPACK_IMPORTED_MODULE_2__["ref"])(false);
   getWeatherInfo().then(function (res) {
-    // 只有数组第一个元素有地址信息
+    console.log(res); // 只有数组第一个元素有地址信息
+
     weatherInfo.value = res === null || res === void 0 ? void 0 : res.map(function (item) {
       item.fxDate = Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["yearTime2Month"])(item.fxDate);
       item.color = weatherColorMap.get(item.textDay);

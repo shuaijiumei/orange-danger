@@ -45,19 +45,8 @@ export default defineComponent({
   },
   setup() {
 
-    const getArticlesConfig: RequestOptionsBetter<GetArticlesProps> = {
-      url: '/articles',
-      data: {
-        pageNum: 5,
-        pageSize: 10
-      }
-    }
-
-    const { state, data } = useHttp<GetArticlesProps, ArticlesDataType>(getArticlesConfig)
-
     return {
-      state,
-      data
+
     }
   }
 })
