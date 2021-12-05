@@ -88,13 +88,6 @@ var getUserOpenId = function getUserOpenId(res) {
 
 var userAuthorize = function userAuthorize() {
   return new Promise(function (resolve, reject) {
-    // todo 判断是否授权
-    uni.getSetting({
-      success: function success(res) {
-        console.log('授权情况');
-        console.log(res);
-      }
-    });
     uni.authorize({
       scope: 'scope.userLocation',
       success: function success(res) {
@@ -240,8 +233,7 @@ var getLocationMoreDetail = function getLocationMoreDetail(longitude, latitude) 
       }
     });
   });
-}; // 获得实时天气信息
-// 获得天气信息
+}; // 获得天气信息
 
 var getWeatherInfo = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/D_HB_project_orange_danger_node_modules_babel_runtime_regenerator_index_js__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
@@ -305,7 +297,8 @@ var getWeatherInfo = /*#__PURE__*/function () {
   return function getWeatherInfo() {
     return _ref2.apply(this, arguments);
   };
-}();
+}(); // 获取天气信息
+
 var useGetWeatherInfo = function useGetWeatherInfo() {
   var weatherInfo = Object(vue__WEBPACK_IMPORTED_MODULE_2__["ref"])();
   var state = Object(vue__WEBPACK_IMPORTED_MODULE_2__["ref"])(false);
@@ -329,6 +322,167 @@ var useGetWeatherInfo = function useGetWeatherInfo() {
   };
 };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @dcloudio/uni-mp-weixin/dist/uni.api.esm.js */ 3)["default"]))
+
+/***/ }),
+
+/***/ 103:
+/*!******************************************************!*\
+  !*** ./src/wxcomponents/@vant/dist/overlay/index.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/component */ 104);
+
+Object(_common_component__WEBPACK_IMPORTED_MODULE_0__["VantComponent"])({
+  props: {
+    show: Boolean,
+    customStyle: String,
+    duration: {
+      type: null,
+      value: 300
+    },
+    zIndex: {
+      type: Number,
+      value: 1
+    },
+    lockScroll: {
+      type: Boolean,
+      value: true
+    }
+  },
+  methods: {
+    onClick: function onClick() {
+      this.$emit('click');
+    },
+    // for prevent touchmove
+    noop: function noop() {}
+  }
+});
+
+/***/ }),
+
+/***/ 104:
+/*!*********************************************************!*\
+  !*** ./src/wxcomponents/@vant/dist/common/component.js ***!
+  \*********************************************************/
+/*! exports provided: VantComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VantComponent", function() { return VantComponent; });
+/* harmony import */ var _mixins_basic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/basic */ 105);
+
+
+function mapKeys(source, target, map) {
+  Object.keys(map).forEach(function (key) {
+    if (source[key]) {
+      target[map[key]] = source[key];
+    }
+  });
+}
+
+function VantComponent(vantOptions) {
+  var options = {};
+  mapKeys(vantOptions, options, {
+    data: 'data',
+    props: 'properties',
+    mixins: 'behaviors',
+    methods: 'methods',
+    beforeCreate: 'created',
+    created: 'attached',
+    mounted: 'ready',
+    destroyed: 'detached',
+    classes: 'externalClasses'
+  }); // add default externalClasses
+
+  options.externalClasses = options.externalClasses || [];
+  options.externalClasses.push('custom-class'); // add default behaviors
+
+  options.behaviors = options.behaviors || [];
+  options.behaviors.push(_mixins_basic__WEBPACK_IMPORTED_MODULE_0__["basic"]); // add relations
+
+  var relation = vantOptions.relation;
+
+  if (relation) {
+    options.relations = relation.relations;
+    options.behaviors.push(relation.mixin);
+  } // map field to form-field behavior
+
+
+  if (vantOptions.field) {
+    options.behaviors.push('wx://form-field');
+  } // add default options
+
+
+  options.options = {
+    multipleSlots: true,
+    addGlobalClass: true
+  };
+  Component(options);
+}
+
+
+
+/***/ }),
+
+/***/ 105:
+/*!*****************************************************!*\
+  !*** ./src/wxcomponents/@vant/dist/mixins/basic.js ***!
+  \*****************************************************/
+/*! exports provided: basic */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "basic", function() { return basic; });
+var basic = Behavior({
+  methods: {
+    $emit: function $emit(name, detail, options) {
+      this.triggerEvent(name, detail, options);
+    },
+    set: function set(data) {
+      this.setData(data);
+      return new Promise(function (resolve) {
+        return wx.nextTick(resolve);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 106:
+/*!******************************************************!*\
+  !*** ./src/wxcomponents/@vant/dist/loading/index.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/component */ 104);
+
+Object(_common_component__WEBPACK_IMPORTED_MODULE_0__["VantComponent"])({
+  props: {
+    color: String,
+    vertical: Boolean,
+    type: {
+      type: String,
+      value: 'circular'
+    },
+    size: String,
+    textSize: String
+  },
+  data: {
+    array12: Array.from({
+      length: 12
+    })
+  }
+});
 
 /***/ }),
 
@@ -6404,87 +6558,6 @@ const createSSRApp = createApp;
 
 /***/ }),
 
-/***/ 24:
-/*!***************************!*\
-  !*** ./src/utils/http.ts ***!
-  \***************************/
-/*! exports provided: http, useHttp */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(uni) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "http", function() { return http; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useHttp", function() { return useHttp; });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
-/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/index */ 14);
-
-
-var apiUrl = 'http://127.0.0.1:4523/mock/469263/api'; // T 是传入参数的类型  P是返回参数的类型: 注：只考虑data 里面的 articleId 之类的细节类型
-
-var http = function http(config) {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: apiUrl + config.url,
-      data: config === null || config === void 0 ? void 0 : config.data,
-      method: (config === null || config === void 0 ? void 0 : config.method) || 'GET',
-      timeout: (config === null || config === void 0 ? void 0 : config.timeout) || 60000,
-      header: config === null || config === void 0 ? void 0 : config.header,
-      dataType: (config === null || config === void 0 ? void 0 : config.dataType) || 'json',
-      responseType: (config === null || config === void 0 ? void 0 : config.responseType) || 'text',
-      sslVerify: (config === null || config === void 0 ? void 0 : config.sslVerify) || true,
-      withCredentials: (config === null || config === void 0 ? void 0 : config.withCredentials) || false,
-      firstIpv4: (config === null || config === void 0 ? void 0 : config.firstIpv4) || false,
-      // 注意： 只要服务器返回都会进入 success 回调
-      success: function success(res) {
-        return resolve(res);
-      },
-      fail: function fail(err) {
-        return reject(err);
-      }
-    });
-  });
-}; // vue hook 函数
-
-var useHttp = function useHttp(config, fun) {
-  var state = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(true);
-  var data = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(null);
-  http(config).then(function (res) {
-    // console.log(res)
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["isResponseOk"])(res.data)) {
-      data.value = Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["isResponseString"])(res.data);
-
-      if (fun instanceof Function) {
-        data.value = fun(data.value);
-      }
-    } else {
-      // 处理响应成功 但 请求失败的错误
-      Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["throwResponseError"])(res.data).catch(function (err) {
-        console.log(err); // 弹出错误提示文案
-
-        uni.showToast({
-          title: err.msg,
-          icon: 'error'
-        });
-      });
-    }
-  }).catch(function (err) {
-    // 处理响应失败的错误
-    console.error(err);
-    Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["showError"])('数据请求失败');
-    data.value = null;
-  }).finally(function () {
-    // 未得到服务端返回
-    state.value = false;
-  });
-  return {
-    state: state,
-    data: data
-  };
-};
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @dcloudio/uni-mp-weixin/dist/uni.api.esm.js */ 3)["default"]))
-
-/***/ }),
-
 /***/ 3:
 /*!******************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/uni.api.esm.js ***!
@@ -8198,7 +8271,7 @@ const getGlobalThis = () => {
 
 /***/ }),
 
-/***/ 54:
+/***/ 53:
 /*!**************************!*\
   !*** ./src/static/1.jpg ***!
   \**************************/
@@ -8209,7 +8282,7 @@ module.exports = "/static/1.jpg";
 
 /***/ }),
 
-/***/ 55:
+/***/ 54:
 /*!**************************!*\
   !*** ./src/static/2.png ***!
   \**************************/
@@ -8220,7 +8293,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAAB8CAYAAAC4
 
 /***/ }),
 
-/***/ 56:
+/***/ 55:
 /*!**************************!*\
   !*** ./src/static/3.png ***!
   \**************************/
@@ -8228,6 +8301,87 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAAB8CAYAAAC4
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 58:
+/*!***************************!*\
+  !*** ./src/utils/http.ts ***!
+  \***************************/
+/*! exports provided: http, useHttp */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(uni) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "http", function() { return http; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useHttp", function() { return useHttp; });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
+/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/index */ 14);
+
+
+var apiUrl = 'http://127.0.0.1:4523/mock/469263/api'; // T 是传入参数的类型  P是返回参数的类型: 注：只考虑data 里面的 articleId 之类的细节类型
+
+var http = function http(config) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: apiUrl + config.url,
+      data: config === null || config === void 0 ? void 0 : config.data,
+      method: (config === null || config === void 0 ? void 0 : config.method) || 'GET',
+      timeout: (config === null || config === void 0 ? void 0 : config.timeout) || 60000,
+      header: config === null || config === void 0 ? void 0 : config.header,
+      dataType: (config === null || config === void 0 ? void 0 : config.dataType) || 'json',
+      responseType: (config === null || config === void 0 ? void 0 : config.responseType) || 'text',
+      sslVerify: (config === null || config === void 0 ? void 0 : config.sslVerify) || true,
+      withCredentials: (config === null || config === void 0 ? void 0 : config.withCredentials) || false,
+      firstIpv4: (config === null || config === void 0 ? void 0 : config.firstIpv4) || false,
+      // 注意： 只要服务器返回都会进入 success 回调
+      success: function success(res) {
+        return resolve(res);
+      },
+      fail: function fail(err) {
+        return reject(err);
+      }
+    });
+  });
+}; // vue hook 函数
+
+var useHttp = function useHttp(config, fun) {
+  var state = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(true);
+  var data = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(null);
+  http(config).then(function (res) {
+    // console.log(res)
+    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["isResponseOk"])(res.data)) {
+      data.value = Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["isResponseString"])(res.data);
+
+      if (fun instanceof Function) {
+        data.value = fun(data.value);
+      }
+    } else {
+      // 处理响应成功 但 请求失败的错误
+      Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["throwResponseError"])(res.data).catch(function (err) {
+        console.log(err); // 弹出错误提示文案
+
+        uni.showToast({
+          title: err.msg,
+          icon: 'error'
+        });
+      });
+    }
+  }).catch(function (err) {
+    // 处理响应失败的错误
+    console.error(err);
+    Object(_utils_index__WEBPACK_IMPORTED_MODULE_1__["showError"])('数据请求失败');
+    data.value = null;
+  }).finally(function () {
+    // 未得到服务端返回
+    state.value = false;
+  });
+  return {
+    state: state,
+    data: data
+  };
+};
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @dcloudio/uni-mp-weixin/dist/uni.api.esm.js */ 3)["default"]))
 
 /***/ }),
 
@@ -9648,7 +9802,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 98:
+/***/ 81:
 /*!******************************!*\
   !*** ./src/utils/Article.ts ***!
   \******************************/
@@ -9658,7 +9812,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useGetHotArticles", function() { return useGetHotArticles; });
-/* harmony import */ var _utils_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/utils/http */ 24);
+/* harmony import */ var _utils_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/utils/http */ 58);
 /* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/index */ 14);
 /**
  * Author: TBY on 2021-12-02

@@ -101,13 +101,7 @@ export const getUserOpenId = (res: UserCodeData) => {
 // 获取用户授权
 export const userAuthorize = (): Promise<any> => {
     return  new Promise<any>((resolve, reject) => {
-        // todo 判断是否授权
-        uni.getSetting({
-            success(res) {
-                console.log('授权情况')
-                console.log(res)
-            }
-        })
+
 
         uni.authorize({
             scope: 'scope.userLocation',
@@ -225,9 +219,6 @@ export const getLocationMoreDetail = (longitude: number, latitude: number):Promi
     })
 }
 
-// 获得实时天气信息
-
-
 // 获得天气信息
 export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
 
@@ -254,7 +245,7 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
     }
 
 }
-
+// 获取天气信息
 export const useGetWeatherInfo = () => {
     const weatherInfo = ref<WeatherDataType[]>()
     const state = ref(false)

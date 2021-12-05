@@ -1,18 +1,20 @@
 <template>
-  <view class="content" v-for="item in data" :key="item.articleId">
-    <view class="article-img">
-      <img class="title-img" :src="item.articleImg" alt="img">
-    </view>
-    <view class="info">
-      <view class="title">
-        {{ item.articleTitle }}
+  <view>
+    <view class="content" v-for="item in data" :key="item.articleId">
+      <view class="article-img">
+        <img class="title-img" :src="item.articleImg" alt="img">
       </view>
-      <view class="more-detail">
-        <view class="time">
-          {{ item.articlePubTime}}
+      <view class="info">
+        <view class="title">
+          {{ item.articleTitle }}
         </view>
-        <view class="source" v-if="item.articleType">{{item.articleSource}}</view>
-        <view class="source" v-else>{{item.articleAuthor}}</view>
+        <view class="more-detail">
+          <view class="time">
+            {{ item.articlePubTime}}
+          </view>
+          <view class="source" v-if="item.articleType">{{item.articleSource}}</view>
+          <view class="source" v-else>{{item.articleAuthor}}</view>
+        </view>
       </view>
     </view>
   </view>

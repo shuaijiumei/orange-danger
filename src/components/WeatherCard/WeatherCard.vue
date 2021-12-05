@@ -1,9 +1,8 @@
 <template>
   <view class="container">
-
     <view class="top">
       <view class="top-left">
-        <view>
+        <view @click="getUserAuthenticated">
             <img style="width: 30rpx; height: 30rpx" src="@/static/icon/location.png" alt=""> {{weatherInfo[0].name || '位置'}}
         </view>
         <view>
@@ -23,7 +22,6 @@
         </view>
       </view>
     </view>
-
     <view class="bottom">
 <!--      展示五天的天气预报，布局上较为合理  -->
       <view  v-for="(item, index) in weatherInfo" v-if="index > 0 && index < 6" class="bottom-item" :key="item.fxDate">
@@ -32,26 +30,51 @@
         <text>{{item.tempMin}}~{{item.tempMax}}℃</text>
       </view>
     </view>
-
   </view>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
-  ref,
+  watchEffect,
 } from 'vue'
 import {useGetWeatherInfo} from "@/utils/User";
 
 export default defineComponent({
   name: "WeatherCard",
+  emits:['weatherDone'],
 
-  setup() {
+  setup(props, {emit}) {
     const {weatherInfo, state:weatherInfoState} = useGetWeatherInfo()
+    watchEffect( () => {
+      emit('weatherDone', weatherInfoState)
+    })
+    // 重新让用户授权地址信息
+    const getUserAuthenticated = () => {
+      // todo 判断是否授权
+      uni.getSetting({
+        success(res) {
+          console.log(res)
+          console.log('授权情况')
+          if (!res.authSetting["scope.userLocation"]) {
+            uni.openSetting({
+              success: res => {
+                if (res.authSetting["scope.userLocation"]){
+                  uni.reLaunch({
+                    url: '/pages/index/index'
+                  })
+                }
+              }
+            })
+          }
+        }
+      })
+    }
 
     return {
       weatherInfo,
-      weatherInfoState
+      weatherInfoState,
+      getUserAuthenticated
     }
   }
 })

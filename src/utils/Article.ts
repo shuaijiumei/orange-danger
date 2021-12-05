@@ -42,7 +42,6 @@ const handleData = (data: ArticleHotDataType[]) => {
 }
 
 export const useGetHotArticles = () => {
-
     const {data, state} = useHttp<GetArticlesProps,ArticleHotDataType[]>(config, handleData)
 
     return {

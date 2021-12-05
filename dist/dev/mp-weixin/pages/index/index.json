@@ -7,6 +7,8 @@
     "article-card": "/components/ArticleCard/ArticleCard",
     "van-button": "/wxcomponents/@vant/dist/button/index",
     "van-toast": "/wxcomponents/@vant/dist/toast/index",
-    "van-loading": "/wxcomponents/@vant/dist/loading/index"
+    "van-loading": "/wxcomponents/@vant/dist/loading/index",
+    "van-overlay": "/wxcomponents/@vant/dist/overlay/index",
+    "loading-all": "/components/LoadingAll/LoadingAll"
   }
 }

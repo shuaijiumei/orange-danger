@@ -15,5 +15,4 @@ setup() {
     page {
       background-color: whitesmoke;
     }
-
 </style>

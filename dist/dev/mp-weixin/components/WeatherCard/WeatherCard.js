@@ -122,23 +122,54 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
+/* WEBPACK VAR INJECTION */(function(uni) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
 /* harmony import */ var _utils_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/User */ 10);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_0__["defineComponent"])({
   name: "WeatherCard",
-  setup: function setup() {
+  emits: ['weatherDone'],
+  setup: function setup(props, _ref) {
+    var emit = _ref.emit;
+
     var _useGetWeatherInfo = Object(_utils_User__WEBPACK_IMPORTED_MODULE_1__["useGetWeatherInfo"])(),
         weatherInfo = _useGetWeatherInfo.weatherInfo,
         weatherInfoState = _useGetWeatherInfo.state;
 
+    Object(vue__WEBPACK_IMPORTED_MODULE_0__["watchEffect"])(function () {
+      emit('weatherDone', weatherInfoState);
+    }); // 重新让用户授权地址信息
+
+    var getUserAuthenticated = function getUserAuthenticated() {
+      // todo 判断是否授权
+      uni.getSetting({
+        success: function success(res) {
+          console.log(res);
+          console.log('授权情况');
+
+          if (!res.authSetting["scope.userLocation"]) {
+            uni.openSetting({
+              success: function success(res) {
+                if (res.authSetting["scope.userLocation"]) {
+                  uni.reLaunch({
+                    url: '/pages/index/index'
+                  });
+                }
+              }
+            });
+          }
+        }
+      });
+    };
+
     return {
       weatherInfo: weatherInfo,
-      weatherInfoState: weatherInfoState
+      weatherInfoState: weatherInfoState,
+      getUserAuthenticated: getUserAuthenticated
     };
   }
 }));
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @dcloudio/uni-mp-weixin/dist/uni.api.esm.js */ 3)["default"]))
 
 /***/ }),
 
