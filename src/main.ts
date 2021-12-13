@@ -3,7 +3,7 @@ import App from './App.vue'
 import Overlay from './wxcomponents/@vant/dist/overlay'
 import Loading from './wxcomponents/@vant/dist/loading'
 
-const app = createApp(App)
+const app = createApp(App as any)
 app.component('van-overlay', Overlay)
 app.component('van-loading', Loading)
 
