@@ -1,6 +1,6 @@
 <template>
   <van-overlay :show="state" bind:click="onClickHide">
-    <van-loading class="loading" type="spinner" size="80rpx" vertical v-show="state">加载中...</van-loading>
+    <van-loading class="loading" size="80rpx" vertical v-show="state">加载中...</van-loading>
   </van-overlay>
 </template>
 

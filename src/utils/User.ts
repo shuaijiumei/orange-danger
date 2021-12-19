@@ -102,7 +102,6 @@ export const getUserOpenId = (res: UserCodeData) => {
 export const userAuthorize = (): Promise<any> => {
     return  new Promise<any>((resolve, reject) => {
 
-
         uni.authorize({
             scope: 'scope.userLocation',
 
@@ -116,33 +115,11 @@ export const userAuthorize = (): Promise<any> => {
     })
 }
 
-// todo 在我的页面点击调用授权信息
 // 获得用户信息， 返回一个 promise
 export const getUserProfile = (): Promise<GetUserProfileRes>=> {
     return  new Promise<GetUserProfileRes>((resolve, reject) => {
         uni.getUserProfile({
             desc: '获取用户信息',
-
-            success: res => resolve(res),
-            fail: err => reject(err)
-        })
-    })
-}
-
-// 将数据传到后台获取解密后的数据
-export const getUserProfileDetail = (iv: string, encryptedData: string) => {
-
-    return  new Promise((resolve, reject) => {
-        uni.request({
-            url: `${api}/info`,
-            method: 'POST',
-            data: {
-                iv,
-                encryptedData
-            },
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
 
             success: res => resolve(res),
             fail: err => reject(err)

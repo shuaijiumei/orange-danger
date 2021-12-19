@@ -1,0 +1,74 @@
+.content {
+  width: 100vw;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.person {
+  width: 100vw;
+  height: 370rpx;
+
+  background-image: url("../../static/icon/bac.png");
+  background-size: contain;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  position: relative;
+}
+
+.userImg {
+  position: relative;
+  top: 0rpx;
+  left: 70rpx;
+}
+.username {
+  position: relative;
+  top: 0rpx;
+  left: 100rpx;
+
+  font-size: large;
+  color: white;
+  width: 60vw;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userImg>img {
+  width: 100rpx;
+  height: 100rpx;
+
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.tools {
+  width: 95vw;
+  height: 25vh;
+
+  border-radius: 5px;
+  background-color: white;
+
+  box-shadow: 0 3px lightgray ;
+
+  position: relative;
+  top: -100rpx;
+
+  display: flex;
+
+  padding: 20rpx;
+}
+
+.tools>view>img {
+  width: 80rpx;
+  height: 80rpx;
+}
+

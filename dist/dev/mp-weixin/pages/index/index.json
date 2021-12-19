@@ -5,10 +5,10 @@
     "tool-card": "/components/ToolCard/ToolCard",
     "weather-card": "/components/WeatherCard/WeatherCard",
     "article-card": "/components/ArticleCard/ArticleCard",
+    "loading-all": "/components/LoadingAll/LoadingAll",
     "van-button": "/wxcomponents/@vant/dist/button/index",
     "van-toast": "/wxcomponents/@vant/dist/toast/index",
     "van-loading": "/wxcomponents/@vant/dist/loading/index",
-    "van-overlay": "/wxcomponents/@vant/dist/overlay/index",
-    "loading-all": "/components/LoadingAll/LoadingAll"
+    "van-overlay": "/wxcomponents/@vant/dist/overlay/index"
   }
 }

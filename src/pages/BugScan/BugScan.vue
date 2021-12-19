@@ -32,7 +32,6 @@ export default defineComponent({
       console.log(e)
     }
 
-
     return {
       takePhoto,
       error,

@@ -16,7 +16,22 @@ __webpack_require__.r(__webpack_exports__);
 wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 
 
-var app = Object(vue__WEBPACK_IMPORTED_MODULE_1__["createApp"])(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]); // @ts-ignore
+
+var Overlay = function Overlay() {
+  __webpack_require__.e(/*! require.ensure | wxcomponents/@vant/dist/overlay/index */ "common/vendor").then((function () {
+    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/overlay */ 52));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var Loading = function Loading() {
+  __webpack_require__.e(/*! require.ensure | wxcomponents/@vant/dist/loading/index */ "common/vendor").then((function () {
+    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/loading */ 55));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var app = Object(vue__WEBPACK_IMPORTED_MODULE_1__["createApp"])(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+app.component('van-overlay', Overlay);
+app.component('van-loading', Loading); // @ts-ignore
 
 app.mount('#app');
 
