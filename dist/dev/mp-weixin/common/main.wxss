@@ -26,5 +26,6 @@
 .van-hairline--surround:after{border-width:1px}
 page {
   background-color: whitesmoke;
+  height: 100%;
 }
 

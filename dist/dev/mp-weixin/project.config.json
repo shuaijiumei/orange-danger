@@ -9,23 +9,19 @@
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "wxc06a4bc38fdc7d51",
+  "appid": "wx214265852d45e9f8",
   "projectname": "orange-danger",
   "condition": {
     "search": {
-      "current": -1,
       "list": []
     },
     "conversation": {
-      "current": -1,
       "list": []
     },
     "game": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
-      "current": -1,
       "list": []
     }
   }

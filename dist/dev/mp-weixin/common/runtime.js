@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/ArticleCard/ArticleCard":1,"components/ImgSwiper/ImgSwiper":1,"components/WeatherCard/WeatherCard":1,"components/LoadingAll/LoadingAll":1,"components/ToolCard/ToolCard":1,"components/ToolCard/ToolItem/ToolItem":1};
+/******/ 		var cssChunks = {"components/ArticleCard/ArticleCard":1,"components/ImgSwiper/ImgSwiper":1,"components/WeatherCard/WeatherCard":1,"components/LoadingAll/LoadingAll":1,"components/ToolCard/ToolCard":1,"components/ToolCard/ToolItem/ToolItem":1,"components/expertList/expertList":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/ArticleCard/ArticleCard":"components/ArticleCard/ArticleCard","components/ImgSwiper/ImgSwiper":"components/ImgSwiper/ImgSwiper","components/WeatherCard/WeatherCard":"components/WeatherCard/WeatherCard","components/LoadingAll/LoadingAll":"components/LoadingAll/LoadingAll","components/ToolCard/ToolCard":"components/ToolCard/ToolCard","components/ToolCard/ToolItem/ToolItem":"components/ToolCard/ToolItem/ToolItem"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/ArticleCard/ArticleCard":"components/ArticleCard/ArticleCard","components/ImgSwiper/ImgSwiper":"components/ImgSwiper/ImgSwiper","components/WeatherCard/WeatherCard":"components/WeatherCard/WeatherCard","components/LoadingAll/LoadingAll":"components/LoadingAll/LoadingAll","components/ToolCard/ToolCard":"components/ToolCard/ToolCard","components/TechnologyForum/DosageCommend/DosageCommend":"components/TechnologyForum/DosageCommend/DosageCommend","components/TechnologyForum/HotArticle/HotArticle":"components/TechnologyForum/HotArticle/HotArticle","components/TechnologyForum/PestIdentify/Pestidentify":"components/TechnologyForum/PestIdentify/Pestidentify","components/TechnologyForum/Pesticide/Pesticide":"components/TechnologyForum/Pesticide/Pesticide","components/ToolCard/ToolItem/ToolItem":"components/ToolCard/ToolItem/ToolItem","components/expertList/expertList":"components/expertList/expertList"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

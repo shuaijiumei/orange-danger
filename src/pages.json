@@ -17,7 +17,10 @@
 			"style": {
 				"navigationBarTitleText": "技术论坛",
 				"usingComponents": {
-					"van-button":"/wxcomponents/@vant/dist/button/index"
+					"van-button":"/wxcomponents/@vant/dist/button/index",
+					"van-tabs":"/wxcomponents/@vant/dist/tabs/index",
+					"van-tab":"/wxcomponents/@vant/dist/tab/index",
+					"van-overlay": "/wxcomponents/@vant/dist/overlay/index"
 				}
 			}
 		},
@@ -44,7 +47,9 @@
 			"style": {
 				"navigationBarTitleText": "解决措施",
 				"usingComponents": {
-					"van-button":"/wxcomponents/@vant/dist/button/index"
+					"van-button":"/wxcomponents/@vant/dist/button/index",
+					"van-search":"/wxcomponents/@vant/dist/search/index",
+					"van-icon":"/wxcomponents/@vant/dist/icon/index"
 				}
 			}
 		}

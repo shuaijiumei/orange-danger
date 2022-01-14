@@ -131,13 +131,68 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
+ // 导入需要用到的组件
+
+var HotArticle = function HotArticle() {
+  __webpack_require__.e(/*! require.ensure | components/TechnologyForum/HotArticle/HotArticle */ "components/TechnologyForum/HotArticle/HotArticle").then((function () {
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/HotArticle/HotArticle.vue */ 100));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var PestIdentify = function PestIdentify() {
+  __webpack_require__.e(/*! require.ensure | components/TechnologyForum/PestIdentify/Pestidentify */ "components/TechnologyForum/PestIdentify/Pestidentify").then((function () {
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/PestIdentify/Pestidentify.vue */ 105));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var Pesticide = function Pesticide() {
+  __webpack_require__.e(/*! require.ensure | components/TechnologyForum/Pesticide/Pesticide */ "components/TechnologyForum/Pesticide/Pesticide").then((function () {
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/Pesticide/Pesticide.vue */ 110));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+
+var DosageCommend = function DosageCommend() {
+  __webpack_require__.e(/*! require.ensure | components/TechnologyForum/DosageCommend/DosageCommend */ "components/TechnologyForum/DosageCommend/DosageCommend").then((function () {
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/DosageCommend/DosageCommend.vue */ 115));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_0__["defineComponent"])({
   name: 'TechnologyForum',
+  components: {
+    HotArticle: HotArticle,
+    PestIdentify: PestIdentify,
+    Pesticide: Pesticide,
+    DosageCommend: DosageCommend
+  },
   setup: function setup() {
-    var name = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])('TechnologyForum');
+    var name = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])('TechnologyForum'); // 头部导航栏数据
+
+    var data = [{
+      title: '热门文章',
+      index: 1
+    }, {
+      title: '病虫害识别',
+      index: 2
+    }, {
+      title: '农药复配',
+      index: 3
+    }, {
+      title: "配药方案推荐",
+      index: 4
+    }]; // 选中标志，用于切换内容组件
+
+    var isActive = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(1); // 切换内容组件函数(这个接口写的好奇怪，后面改)
+
+    var onClickTab = function onClickTab(data) {
+      isActive.value = data.detail.index + 1;
+    };
+
     return {
-      name: name
+      name: name,
+      data: data,
+      isActive: isActive,
+      onClickTab: onClickTab
     };
   }
 }));
