@@ -37,7 +37,6 @@ export default defineComponent({
         imgSrc.value = res.userInfo.avatarUrl
         userNickName.value = res.userInfo.nickName
 
-
       }).catch(e => {
         console.log(e)
       })
