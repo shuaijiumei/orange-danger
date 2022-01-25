@@ -52,6 +52,13 @@
 					"van-icon":"/wxcomponents/@vant/dist/icon/index"
 				}
 			}
+		},
+		{
+			"path":"pages/ExpertTeam/ExpertTeam",
+			"style":{
+				"navigationBarTitleText":"专家团队",
+				"usingComponents":{}
+			}
 		}
 
 	],

@@ -1,8 +1,8 @@
 <template>
     <view class="expert-list">
       <view class="expert-header">
-        <view class="title">专家讲坛</view>
-        <view class="more">查看更多></view>
+        <view class="title">{{expert_list_name}}</view>
+        <view class="more" @click="navigateToPage(navigateUrl)">查看更多></view>
       </view>
       <view class="expert-content">
         <view  class="expert-info" v-for="item in data" :key="item.expertName">
@@ -14,19 +14,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent,onMounted} from 'vue'
+import { defineComponent} from 'vue'
 import {useGotProfessionTeam} from "@/utils/Expert"
 export default defineComponent({
     name:'ExpertList',
-    setup() {
+    props:{
+      expert_list_name : String,
+    },
+    setup(props) {
+      // 获取从父元素传递的值
+      const {expert_list_name} =props
         // 获取专家团队信息
       const {data,state} =useGotProfessionTeam()
-      const consoleData =()=>{console.log(data)}
-      onMounted(consoleData)
+      // const consoleData =()=>{console.log(data)}
+      // onMounted(consoleData)
+      // 点击跳转到专家团队页面
+      const navigateUrl ="/pages/ExpertTeam/ExpertTeam"
+      const navigateToPage = (navigateUrl: string) => {
+        uni.navigateTo({
+          url: navigateUrl
+       })
+    }
 
       return {
         data,
-        state
+        state,
+        navigateToPage,
+        navigateUrl,
+        expert_list_name
       }
     },
 })
@@ -56,6 +71,7 @@ export default defineComponent({
   right: 40rpx;
   transform: translateY(-50%);
   color: #999999;
+  cursor: pointer;
 }
 
 .expert-content{

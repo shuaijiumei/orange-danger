@@ -1,8 +1,8 @@
 <template>
     <view class="hot-article">
-        <expert-list/>
+       <expert-list :expert_list_name="expert_list_name"/>
        <expert-class/>
-       <hot-paragraph/>
+       <hot-paragraph :hot_paragraph_name="hot_paragraph_name"/>
     </view>
 </template>
 
@@ -20,7 +20,12 @@ export default defineComponent({
         ExpertList
     },
     setup() {
-        
+        const expert_list_name ="专家课堂"
+        const hot_paragraph_name="热门文章"
+        return {
+            expert_list_name,
+            hot_paragraph_name
+        }
     },
 })
 </script>

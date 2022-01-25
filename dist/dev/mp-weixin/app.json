@@ -4,7 +4,8 @@
     "pages/TechnologyForum/TechnologyForum",
     "pages/Profile/Profile",
     "pages/BugScan/BugScan",
-    "pages/BugSearch/BugSearch"
+    "pages/BugSearch/BugSearch",
+    "pages/ExpertTeam/ExpertTeam"
   ],
   "subPackages": [],
   "window": {
@@ -47,6 +48,5 @@
   "usingComponents": {
     "van-overlay": "/wxcomponents/@vant/dist/overlay/index",
     "van-loading": "/wxcomponents/@vant/dist/loading/index"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

@@ -1,7 +1,7 @@
 <template>
   <view class="hot-paragraph">
       <view class="header">
-          <text class="header-title">热门文章</text>
+          <text class="header-title">{{hot_paragraph_name}}</text>
           <text class="more">查看更多></text>
       </view>
       <view class="paragraph">
@@ -19,13 +19,18 @@ import {defineComponent} from "vue"
 import {useGetHotArticles} from "@/utils/Article"
 export default defineComponent({
     name:"HotParagraph",
-    setup(){
+    props:{
+        hot_paragraph_name:String,
+    },
+    setup(props){
         // 获取热门文章
         const {data,state} =useGetHotArticles();
 
+        const {hot_paragraph_name} =props
         return {
             data,
-            state
+            state,
+            hot_paragraph_name
         }
     }
 })
