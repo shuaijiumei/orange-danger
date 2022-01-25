@@ -1,6 +1,12 @@
 <template>
   <view class="forum">
-    <van-tabs v-model:active="active" @click="onClickTab">
+    <van-tabs v-model:active="active" 
+    @click="onClickTab" 
+    sticky swipeable
+    ellipsis=false
+    swipe-threshold=3
+    title-active-color="black"
+    background="#f1f1f1">
       <van-tab v-for="item in data" :title="item.title" :key='item.title' :index="item.index">
         <HotArticle v-if="isActive==1"/>
         <PestIdentify v-if="isActive==2"/>
@@ -47,8 +53,13 @@ export default defineComponent({
     }]
     // 选中标志，用于切换内容组件
     let isActive =ref(1);
-    // 切换内容组件函数(这个接口写的好奇怪，后面改)
-    const onClickTab =(data:{detail:{index:number}})=>{
+    interface ChangeData {
+      detail:{
+        index:number
+      }
+    }
+    // 切换内容组件函数
+    const onClickTab =(data:ChangeData)=>{
       isActive.value =data.detail.index+1
     }
     return {

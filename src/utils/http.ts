@@ -63,8 +63,9 @@ export const useHttp = <T, P>(config: RequestOptionsBetter<T>, fun?: Function):H
         .catch(err => {
           console.log(err)
           // 弹出错误提示文案
+// --------------------------------------todo--------------------------------------------------------------
           uni.showToast({
-            title: err.msg,
+            title: 'err.msg',
             icon: 'error'
           })
         })

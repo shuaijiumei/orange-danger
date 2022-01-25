@@ -8,25 +8,32 @@
 // 获取专家团队的信息
 import {useHttp} from "@/utils/http";
 
+// 查询相应分页的专家团队信息
+interface GetExpertsProps {
+    pageNum: number,
+    pageSize: number
+}
 
 // 定义接口，以声明返回数据类型
 interface professionTeam {
-    expertImg:string,
-    expertAuthld:number,
+    expertId:string,
     expertName:string,
     expertBrief:string,
     expertInfo:string,
-    authEvidence:string
+    expertImg:string
 }
 
 const config ={
-    url:'/admin/expert/exam',
-    // 不是很明白这个data内容有什么用
-    data:{}
+    url:'/experts',
+    // 返回一页四个专家信息
+    data:{
+        pageNum:1,
+        pageSize:4
+    }
 }
 
 export const useGotProfessionTeam =()=>{
-    const {data,state} =useHttp<{},professionTeam[]>(config)
+    const {data,state} =useHttp<GetExpertsProps,professionTeam[]>(config)
 
     return {
         data,

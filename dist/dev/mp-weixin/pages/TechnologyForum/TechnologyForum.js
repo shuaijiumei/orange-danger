@@ -182,7 +182,7 @@ var DosageCommend = function DosageCommend() {
       index: 4
     }]; // 选中标志，用于切换内容组件
 
-    var isActive = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(1); // 切换内容组件函数(这个接口写的好奇怪，后面改)
+    var isActive = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])(1); // 切换内容组件函数
 
     var onClickTab = function onClickTab(data) {
       isActive.value = data.detail.index + 1;
