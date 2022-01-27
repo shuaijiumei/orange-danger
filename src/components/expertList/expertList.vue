@@ -2,10 +2,10 @@
     <view class="expert-list">
       <view class="expert-header">
         <view class="title">{{expert_list_name}}</view>
-        <view class="more" @click="navigateToPage(navigateUrl)">查看更多></view>
+        <view class="more" @click="navigateToExpertTeam(ExpertTeamUrl)">查看更多></view>
       </view>
       <view class="expert-content">
-        <view  class="expert-info" v-for="item in data" :key="item.expertName">
+        <view  class="expert-info" v-for="item in data" :key="item.expertName" @click="navigateToExpert(ExpertUrl)">
           <img class="expert-img" :src="item.expertImg" />
           <text class="expert-name">{{item.expertName}}</text>
         </view>
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent} from 'vue'
+import { defineComponent,onMounted} from 'vue'
 import {useGotProfessionTeam} from "@/utils/Expert"
 export default defineComponent({
     name:'ExpertList',
@@ -26,21 +26,30 @@ export default defineComponent({
       const {expert_list_name} =props
         // 获取专家团队信息
       const {data,state} =useGotProfessionTeam()
-      // const consoleData =()=>{console.log(data)}
-      // onMounted(consoleData)
+      const consoleData =()=>{console.log(data)}
+      onMounted(consoleData)
       // 点击跳转到专家团队页面
-      const navigateUrl ="/pages/ExpertTeam/ExpertTeam"
-      const navigateToPage = (navigateUrl: string) => {
+      const ExpertTeamUrl ="/pages/ExpertTeam/ExpertTeam"
+      const navigateToExpertTeam = (ExpertTeamUrl: string) => {
         uni.navigateTo({
-          url: navigateUrl
+          url: ExpertTeamUrl
        })
     }
 
+    // 点击跳转到专家详情页面
+    const ExpertUrl ="/pages/ExpertDetails/ExpertDetails"
+    const navigateToExpert =(ExpertUrl : string) =>{
+      uni.navigateTo({
+        url:ExpertUrl
+      })
+    }
       return {
         data,
         state,
-        navigateToPage,
-        navigateUrl,
+        navigateToExpertTeam,
+        ExpertTeamUrl,
+        navigateToExpert,
+        ExpertUrl,
         expert_list_name
       }
     },

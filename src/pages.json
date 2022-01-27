@@ -59,6 +59,14 @@
 				"navigationBarTitleText":"专家团队",
 				"usingComponents":{}
 			}
+		},
+		{
+			"path":"pages/ExpertDetails/ExpertDetails",
+			"style":{
+				// emmm....这里怎么传值是一个问题
+				"navigationBarTitleText":"专家xxx",
+				"usingComponents":{}
+			}
 		}
 
 	],
