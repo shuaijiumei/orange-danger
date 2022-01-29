@@ -100,13 +100,19 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var m0 = __webpack_require__(/*! ../../static/icon/zaixianzixun.png */ 36)
+  var m0 = __webpack_require__(/*! @/static/profile/collection.png */ 196)
+
+  var m1 = __webpack_require__(/*! @/static/profile/identification.png */ 197)
+
+  var m2 = __webpack_require__(/*! @/static/profile/personal.png */ 198)
 
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
         m0: m0,
+        m1: m1,
+        m2: m2,
       },
     }
   )
@@ -160,12 +166,44 @@ __webpack_require__.r(__webpack_exports__);
       }).catch(function (e) {
         console.log(e);
       });
-    };
+    }; // 工具栏列表
 
+
+    var tool_list = [{
+      img: __webpack_require__(/*! @/static/icon/zaixianzixun.png */ 36),
+      name: "在线咨询"
+    }, {
+      img: __webpack_require__(/*! @/static/icon/jiShuKeTang.png */ 191),
+      name: "技术课堂"
+    }, {
+      img: __webpack_require__(/*! @/static/icon/binChongHai.png */ 192),
+      name: "病虫害识别"
+    }, {
+      img: __webpack_require__(/*! @/static/icon/nongYao.png */ 193),
+      name: "农药复配"
+    }, {
+      img: __webpack_require__(/*! @/static/icon/peiYaoFangAn.png */ 194),
+      name: "配药方案推荐"
+    }, {
+      img: __webpack_require__(/*! @/static/icon/zhuanJia.png */ 195),
+      name: "专家认证"
+    }]; // 待补充功能列表
+
+    var function_list = [{
+      name: "个人信息"
+    }, {
+      name: "其他功能"
+    }, {
+      name: "其他功能"
+    }, {
+      name: "其他功能"
+    }];
     return {
       handleClickGetUserProfile: handleClickGetUserProfile,
       imgSrc: imgSrc,
-      userNickName: userNickName
+      userNickName: userNickName,
+      tool_list: tool_list,
+      function_list: function_list
     };
   }
 }));

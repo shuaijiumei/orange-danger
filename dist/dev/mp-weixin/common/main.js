@@ -19,13 +19,13 @@ wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 
 var Overlay = function Overlay() {
   __webpack_require__.e(/*! require.ensure | wxcomponents/@vant/dist/overlay/index */ "common/vendor").then((function () {
-    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/overlay */ 61));
+    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/overlay */ 71));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var Loading = function Loading() {
   __webpack_require__.e(/*! require.ensure | wxcomponents/@vant/dist/loading/index */ "common/vendor").then((function () {
-    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/loading */ 64));
+    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/loading */ 74));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 

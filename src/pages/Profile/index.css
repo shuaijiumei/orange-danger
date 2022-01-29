@@ -1,37 +1,27 @@
 .content {
   width: 100vw;
-  height: auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  height: 100%;
 }
 
 .person {
   width: 100vw;
-  height: 370rpx;
-
+  height: 320rpx;
   background-image: url("../../static/icon/bac.png");
   background-size: contain;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
   position: relative;
 }
 
 .userImg {
-  position: relative;
-  top: 0rpx;
-  left: 70rpx;
+  position: absolute;
+  top: 50%;
+  left: 42rpx;
+  transform: translateY(-50%);
 }
 .username {
-  position: relative;
-  top: 0rpx;
-  left: 100rpx;
+  position: absolute;
+  top: 50%;
+  left: 210rpx;
+  transform: translateY(-50%);
 
   font-size: large;
   color: white;
@@ -43,32 +33,118 @@
 }
 
 .userImg>img {
-  width: 100rpx;
-  height: 100rpx;
-
+  width: 130rpx;
+  height: 130rpx;
   border-radius: 50%;
   border: 1px solid white;
 }
 
 .tools {
-  width: 95vw;
-  height: 25vh;
-
-  border-radius: 5px;
+  width: 700rpx;
+  height: 315rpx;
+  /* 居中 */
+  transform: translate(25rpx,-90rpx);
+  border-radius: 5rpx;
   background-color: white;
-
-  box-shadow: 0 3px lightgray ;
-
-  position: relative;
-  top: -100rpx;
-
+  box-shadow: 0 3px #eaeaea;
   display: flex;
-
-  padding: 20rpx;
+  justify-content: flex-start;
+  flex-wrap: wrap
 }
 
-.tools>view>img {
-  width: 80rpx;
-  height: 80rpx;
+.item{
+  width: 25%;
+  height: 50%;
+  position: relative;
+}
+.item>img{
+  width: 52rpx;
+  height: 52rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.item>.name{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25rpx;
+  white-space: nowrap;
 }
 
+.function{
+  width: 700rpx;
+  height: 235rpx;
+  transform: translateX(25rpx);
+  border-radius: 5rpx;
+  background-color: white;
+}
+.function img{
+  width: 38rpx;
+  height: 42rpx;
+}
+.function>view{
+  width: 100%;
+  height: 117rpx;
+  position: relative;
+}
+.function>view>img{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 35rpx;
+}
+.function>view>.title{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100rpx;
+}
+.function>view>.end{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30rpx;
+}
+.function>.collection{
+  border-bottom: 1rpx solid #d7d7d7;
+}
+
+.to-be-added{
+  margin-top: 25rpx;
+  width: 700rpx;
+  height: auto;
+  transform: translateX(25rpx);
+  border-radius: 5rpx;
+  background-color: white;
+}
+.added-item{
+  width: 100%;
+  height: 117rpx;
+  position: relative;
+}
+.added-item>img{
+  width: 38rpx;
+  height: 42rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 35rpx;
+}
+.added-item>.title{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100rpx;
+}
+.added-item>.end{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30rpx;
+}
+.added-item:nth-child(n+2){
+  border-top: 1rpx solid #d7d7d7;
+}
