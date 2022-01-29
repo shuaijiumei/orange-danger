@@ -13,12 +13,12 @@
       </view>
     </view>
     <view class="function">
-      <view class="collection">
+      <view class="collection" @click="navigateToCollection(collectionUrl)">
         <img src="@/static/profile/collection.png" alt="">
         <text class="title">我的收藏</text>
         <text class="end">></text>
       </view>
-      <view class="identification">
+      <view class="identification" @click="navigateToConsultation(consultationUrl)">
         <img src="@/static/profile/identification.png" alt="">
         <text class="title">我的识别记录</text>
         <text class="end">></text>
@@ -97,12 +97,31 @@ export default defineComponent({
       }
     ]
 
+    // 点击跳转至我的收藏页面
+    const collectionUrl ="/pages/MyCollection/MyCollection"
+    const navigateToCollection =(collectionUrl:string)=>{
+      uni.navigateTo({
+        url: collectionUrl
+      })
+    }
+    // 点击跳转到我的咨询记录页面
+    const consultationUrl ="/pages/MyConsultation/MyConsultation"
+    const navigateToConsultation =(consultationUrl:string)=>{
+      uni.navigateTo({
+        url:consultationUrl
+      })
+    }
+
     return {
       handleClickGetUserProfile,
       imgSrc,
       userNickName,
       tool_list,
-      function_list
+      function_list,
+      collectionUrl,
+      navigateToCollection,
+      consultationUrl,
+      navigateToConsultation
     }
   }
 })

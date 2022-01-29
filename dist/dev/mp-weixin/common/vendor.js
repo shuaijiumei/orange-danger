@@ -6630,6 +6630,108 @@ const createSSRApp = createApp;
 
 /***/ }),
 
+/***/ 221:
+/*!****************************************!*\
+  !*** ./src/utils/CollectionArticle.ts ***!
+  \****************************************/
+/*! exports provided: useGotCollectionArticles */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useGotCollectionArticles", function() { return useGotCollectionArticles; });
+/* harmony import */ var _utils_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/utils/http */ 68);
+/**
+ * Author: YZH on 2022-01-29
+ * note 笔记
+ * tips 特别注意
+ * example 例子
+ */
+// 获取收藏的文章内容
+
+var config = {
+  url: '/collections/article',
+  data: {
+    openid: 1
+  }
+};
+var useGotCollectionArticles = function useGotCollectionArticles() {
+  var _useHttp = Object(_utils_http__WEBPACK_IMPORTED_MODULE_0__["useHttp"])(config),
+      data = _useHttp.data,
+      state = _useHttp.state; // const {data,state} =useHttp<{},CollectionArticle[]>(config,undefined)
+
+
+  return {
+    data: data,
+    state: state
+  };
+};
+
+/***/ }),
+
+/***/ 222:
+/*!***************************************************!*\
+  !*** ./src/static/MyCollection/collection-on.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAEO0lEQVRIiZ2XTW/jRBjHf+O3xHUSpwlNt0sX1K3gwAWJA4IPwItA4s6N78LX4IS4ckB74IJACInVnhYEEuwB6Ha3tDRpmrc6sR3PoLGTNqmTNtlHssYTzzxv/2f+80QopRRrScyw36LX/IN6vY7lv4nWIMR6Wqx1FmsfhXqC03uId/4Aq3AHvM8RVg2Fna4R0zBuccRYx7DQYQ2HdDqddJ50u4RBsI6KFzEcg+zBxQO80Q8UaCGHzygE34L8C1RyW5AvahjiMCQ4O2O2LM7bbRiNsmysIatjrI6x+99B8HgOv+LwJ+gOUe4+QrggrqlcgvnqEScJrWZz4adhu00cx6uHu5phmT3dL/FG31/bamDRxxr9itX9Bvgvv10srvCVItaYDo6O5vXNYKrfT05OZvJ6uwilnipoA/pYdCDu69xB1MzGoAVRm2TcQ0q5XKEwsW0XClvgbkFhE4ovgVsDqwqiADSAOlDDGjRPGfYOCMMzZHiKmQyxVYBh9NPRUReYIkQImRHIkurV38IwJI76JD3JmD6JOmMsNlCijFksYRZfxS7FVLdrWHH7R9yLn9mUx5kCoROmMISRjrP4TI3qUUc/l25k6pw+34hWqocZJktCCxmW6EafUt3ew9jc36dUKuUwu07hs/Ob6H3ZN61zw/PY2dubOKRiFQXnDJ99hRg8wuUwp2hdcph1PsFB4jP03sff/RCrtJ9+T6vacV38e/eo+D6GYeQUrCPTiPU4dXrD96nv7mJ53pXey2tRRYyCU+J/v8boPsQRhwtTvlymDmeVnwgLSYmw/BHe9gc4lb05orx6E4KiV6J49y7IMuOLdYzm05xhWmJjZwe8cn5NrhFQEcHgBHH0BXLwC45o3WJmkjCNiDInhm0GGx9T3nkvbRQWSf6S0J6WK9BoMI4L2o+VCiyDJXs3TZPNrS2oVJauX0CZupOognKRlxHMGlXXqHFCxjI7y1MZyToIP798ueGJ+jgmSZIbo1wmmlw0i90kc4YzuGWKs4j+Rqj+CmayW+qS1dL9IWZ4AKp7465LmW6W43Ea8TpVPXt+dcRptqZ39AI91hxaeiJCVPwcI2khyF/uEVUUHom5mRooyX8QIkFN8DUm5O4kpxAfgPN6CvH10lzY+qTdxBJ8C4UClt+AYiPttTg/IhmPckGlEUcReIvZz5r7KZ2EmNERxM0U7wQXZIGe9QaF2luY1Xfw3AbCLiLjmLDynGHnMePzR3jjJziinSlOnkJ8mDN4Y8RRFGHPRFysVik27oP3cnapKzvFzbBtXMfH1b9X9+D0hGTQSSFInyhaemzyhtUF41jSle+m16XV+ITEewXTmaG9mT5K6a7CaqD8t5HeZ4wHf9I5/g118TtWHGDLCCGcHMgLmcv3fXz/Pvg+GDVdKktTduWLwLJsrGqNO6XXoBdk1byE8XJcnaPHFf8LrSXA/5IH9ODACluoAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ 223:
+/*!***********************************************!*\
+  !*** ./src/static/MyCollection/praise-on.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAcCAYAAAB2+A+pAAAEHklEQVRIibWWe2hbVRzHP/fc5CZN32mzPlTWLsLKpFpnpUxWJq5aZFOcHQxxRak4RSfsURDEfwr9T2SgIOKDylQYlYHa0gnzjzllk1IVkVnWYZGtbehrS7skNWnuvXLvTfrIvWnTsX7hcJNzfuf3Pb/XOT9J13WdDCQiESIz0yxMThAOhympqKQoUIHiL8fj9YKUIR+LEpuaJjY5bsoXBspN+Ty/H8VXZJM3kCLWwKAP/QNnvma6r5fw2DhaIm4K6RLkFRTjq76HwAvtcKgDJAkiYeg7y8xXnzE3PkHyvwVLq5BQfHnkV93LltZnoeNNKPKD22Mnvn0rzJ/vdTE10EdNZBpvUkXWtSViFZmoW2GyoATltRO0tLRwuedTbvzwPdvnJu3yEsRcHm56i1EPtvP00WNIZYEM4utXGH37OIuXLmL8laTVvhGpYGipaUNxfn4+scjttITdlykY+lRZZuuOHRScHoBiP7hc1o6x/n6Gh4dNwpWk6fBnHsT4H41GbXNOSM+PjIwweO7cCouvXtGvPrkz64k3Al1KK3XeFCoo5vGzA1D3CGLwwoW7QpoLDA/Onj9vSgrXH5dz2KKlxtqQdGGObPDHo7h+/hGSccT8/PwqMYeyvmvWGjByQ00mcaGutsRKhvScyPiuh2xe0bDUauhqEl2TEYqibIaBjjCMcrlc5lcka7Y5yAhzGPUr1vC80IU50vJp2MNlrUfdHhaCdQivgmhsbNwUy8io7fTvmuZmy2JP6wFmG3dxy5O3fFIhmTWpScu3lRM0STNHtqzXddWc1w05XWLiqTbYf8iikBWFx44cWfI9m5TZbrebtsOHQVghEeaT1fwMoYOvEBdudASyhjlWHsL42mO+Xn1bsf23sJzES2+g7twN7jxzxXokFuNwc4qp555gdnwMF5b2TDdnPhb2srPDjOfDj3L/Rz1QGbTWpdQO3e1Br7iPgk96GdreQEIWqJJdmT3mYk1SI2+u1T6A/4MvobLWaggkh6P6gkHaOzspLCxcw325o7S0lH1dXfirq217RMpy6yBGm9Lahu/9z7lUsZWkEGbMN4o5xcPf/mrcH/fC7laQpdV1ns1P5U1NdJw8SUlJyR1ZGggEONDVxbb6+qwyVnKlMzUjmeYHf+XMiddpCo3gVllqbbJh1utjoqqWPV98Q2BrDTjkSU7ERObh91+YeuctZsZC6xKXPdhA+bvd0LjHuCFyIE4hG78eusHpzmMEh36iKBHHoy2uWr9WWoZn1172ftiDkGXHdvaOiIlHYeI6nOrmr/4+FDWxtGTceMGXO+DFV6G2PosCR2JVz/m9VZMMffct46e6icViRLZUsP/ocar2PZ8hmMPFkgvxUsurJsFo2n+7CKOj8FADBOugaLlf3gCx04uw/sZckDV0wP+NGaEntdOvSgAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ 230:
+/*!***************************************!*\
+  !*** ./src/utils/CollectionAnswer.ts ***!
+  \***************************************/
+/*! exports provided: useGotCollectionAnswers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useGotCollectionAnswers", function() { return useGotCollectionAnswers; });
+/* harmony import */ var _utils_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/utils/http */ 68);
+/**
+ * Author: YZH on 2022-01-29
+ * note 笔记
+ * tips 特别注意
+ * example 例子
+ */
+// 获取收藏的回答
+
+var config = {
+  url: '/answers',
+  data: {
+    questionId: 1,
+    pageNum: 1,
+    pageSize: 1
+  }
+};
+var useGotCollectionAnswers = function useGotCollectionAnswers() {
+  var _useHttp = Object(_utils_http__WEBPACK_IMPORTED_MODULE_0__["useHttp"])(config),
+      data = _useHttp.data,
+      state = _useHttp.state; // const {data,state} =useHttp<{},CollectionArticle[]>(config,undefined)
+
+
+  return {
+    data: data,
+    state: state
+  };
+};
+
+/***/ }),
+
 /***/ 3:
 /*!******************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/uni.api.esm.js ***!

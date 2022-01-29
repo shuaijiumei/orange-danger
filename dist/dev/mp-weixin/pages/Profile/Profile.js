@@ -148,7 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
+/* WEBPACK VAR INJECTION */(function(uni) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
 /* harmony import */ var _utils_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/User */ 10);
 
 
@@ -197,16 +197,39 @@ __webpack_require__.r(__webpack_exports__);
       name: "其他功能"
     }, {
       name: "其他功能"
-    }];
+    }]; // 点击跳转至我的收藏页面
+
+    var collectionUrl = "/pages/MyCollection/MyCollection";
+
+    var navigateToCollection = function navigateToCollection(collectionUrl) {
+      uni.navigateTo({
+        url: collectionUrl
+      });
+    }; // 点击跳转到我的咨询记录页面
+
+
+    var consultationUrl = "/pages/MyConsultation/MyConsultation";
+
+    var navigateToConsultation = function navigateToConsultation(consultationUrl) {
+      uni.navigateTo({
+        url: consultationUrl
+      });
+    };
+
     return {
       handleClickGetUserProfile: handleClickGetUserProfile,
       imgSrc: imgSrc,
       userNickName: userNickName,
       tool_list: tool_list,
-      function_list: function_list
+      function_list: function_list,
+      collectionUrl: collectionUrl,
+      navigateToCollection: navigateToCollection,
+      consultationUrl: consultationUrl,
+      navigateToConsultation: navigateToConsultation
     };
   }
 }));
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! @dcloudio/uni-mp-weixin/dist/uni.api.esm.js */ 3)["default"]))
 
 /***/ }),
 

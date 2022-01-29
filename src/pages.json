@@ -67,6 +67,25 @@
 				"navigationBarTitleText":"专家xxx",
 				"usingComponents":{}
 			}
+		},
+		{
+			"path":"pages/MyCollection/MyCollection",
+			"style":{
+				"navigationBarTitleText":"我的收藏",
+				"usingComponents":{
+					"van-tabs":"/wxcomponents/@vant/dist/tabs/index",
+					"van-tab":"/wxcomponents/@vant/dist/tab/index"
+				}
+			}
+		},
+		{
+			"path":"pages/MyConsultation/MyConsultation",
+			"style":{
+				"navigationBarTitleText":"我的咨询记录",
+				"usingComponents":{
+
+				}
+			}
 		}
 
 	],

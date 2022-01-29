@@ -6,7 +6,9 @@
     "pages/BugScan/BugScan",
     "pages/BugSearch/BugSearch",
     "pages/ExpertTeam/ExpertTeam",
-    "pages/ExpertDetails/ExpertDetails"
+    "pages/ExpertDetails/ExpertDetails",
+    "pages/MyCollection/MyCollection",
+    "pages/MyConsultation/MyConsultation"
   ],
   "subPackages": [],
   "window": {
