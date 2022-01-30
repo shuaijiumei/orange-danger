@@ -83,7 +83,7 @@
 			"style":{
 				"navigationBarTitleText":"我的咨询记录",
 				"usingComponents":{
-
+					"van-empty":"/wxcomponents/@vant/dist/empty/index"
 				}
 			}
 		}

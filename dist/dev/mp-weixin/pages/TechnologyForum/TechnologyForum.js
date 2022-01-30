@@ -135,25 +135,25 @@ __webpack_require__.r(__webpack_exports__);
 
 var HotArticle = function HotArticle() {
   __webpack_require__.e(/*! require.ensure | components/TechnologyForum/HotArticle/HotArticle */ "components/TechnologyForum/HotArticle/HotArticle").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TechnologyForum/HotArticle/HotArticle.vue */ 115));
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/HotArticle/HotArticle.vue */ 137));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var PestIdentify = function PestIdentify() {
   __webpack_require__.e(/*! require.ensure | components/TechnologyForum/PestIdentify/Pestidentify */ "components/TechnologyForum/PestIdentify/Pestidentify").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TechnologyForum/PestIdentify/Pestidentify.vue */ 120));
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/PestIdentify/Pestidentify.vue */ 142));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var Pesticide = function Pesticide() {
   __webpack_require__.e(/*! require.ensure | components/TechnologyForum/Pesticide/Pesticide */ "components/TechnologyForum/Pesticide/Pesticide").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TechnologyForum/Pesticide/Pesticide.vue */ 125));
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/Pesticide/Pesticide.vue */ 147));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var DosageCommend = function DosageCommend() {
   __webpack_require__.e(/*! require.ensure | components/TechnologyForum/DosageCommend/DosageCommend */ "components/TechnologyForum/DosageCommend/DosageCommend").then((function () {
-    return resolve(__webpack_require__(/*! @/components/TechnologyForum/DosageCommend/DosageCommend.vue */ 130));
+    return resolve(__webpack_require__(/*! @/components/TechnologyForum/DosageCommend/DosageCommend.vue */ 152));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 

@@ -51,5 +51,6 @@
   "usingComponents": {
     "van-overlay": "/wxcomponents/@vant/dist/overlay/index",
     "van-loading": "/wxcomponents/@vant/dist/loading/index"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
