@@ -14,5 +14,6 @@ setup() {
     @import "wxcomponents/@vant/dist/common/index.wxss";
     page {
       background-color: whitesmoke;
+      height: 100%;
     }
 </style>

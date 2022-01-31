@@ -1,6 +1,13 @@
 {
   "navigationBarTitleText": "技术论坛",
   "usingComponents": {
-    "van-button": "/wxcomponents/@vant/dist/button/index"
+    "van-button": "/wxcomponents/@vant/dist/button/index",
+    "van-tabs": "/wxcomponents/@vant/dist/tabs/index",
+    "van-tab": "/wxcomponents/@vant/dist/tab/index",
+    "van-overlay": "/wxcomponents/@vant/dist/overlay/index",
+    "hot-article": "/components/TechnologyForum/HotArticle/HotArticle",
+    "pest-identify": "/components/TechnologyForum/PestIdentify/Pestidentify",
+    "pesticide": "/components/TechnologyForum/Pesticide/Pesticide",
+    "dosage-commend": "/components/TechnologyForum/DosageCommend/DosageCommend"
   }
 }

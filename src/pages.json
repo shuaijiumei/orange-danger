@@ -17,7 +17,10 @@
 			"style": {
 				"navigationBarTitleText": "技术论坛",
 				"usingComponents": {
-					"van-button":"/wxcomponents/@vant/dist/button/index"
+					"van-button":"/wxcomponents/@vant/dist/button/index",
+					"van-tabs":"/wxcomponents/@vant/dist/tabs/index",
+					"van-tab":"/wxcomponents/@vant/dist/tab/index",
+					"van-overlay": "/wxcomponents/@vant/dist/overlay/index"
 				}
 			}
 		},
@@ -44,7 +47,43 @@
 			"style": {
 				"navigationBarTitleText": "解决措施",
 				"usingComponents": {
-					"van-button":"/wxcomponents/@vant/dist/button/index"
+					"van-button":"/wxcomponents/@vant/dist/button/index",
+					"van-search":"/wxcomponents/@vant/dist/search/index",
+					"van-icon":"/wxcomponents/@vant/dist/icon/index"
+				}
+			}
+		},
+		{
+			"path":"pages/ExpertTeam/ExpertTeam",
+			"style":{
+				"navigationBarTitleText":"专家团队",
+				"usingComponents":{}
+			}
+		},
+		{
+			"path":"pages/ExpertDetails/ExpertDetails",
+			"style":{
+				// emmm....这里怎么传值是一个问题
+				"navigationBarTitleText":"专家xxx",
+				"usingComponents":{}
+			}
+		},
+		{
+			"path":"pages/MyCollection/MyCollection",
+			"style":{
+				"navigationBarTitleText":"我的收藏",
+				"usingComponents":{
+					"van-tabs":"/wxcomponents/@vant/dist/tabs/index",
+					"van-tab":"/wxcomponents/@vant/dist/tab/index"
+				}
+			}
+		},
+		{
+			"path":"pages/MyConsultation/MyConsultation",
+			"style":{
+				"navigationBarTitleText":"我的咨询记录",
+				"usingComponents":{
+					"van-empty":"/wxcomponents/@vant/dist/empty/index"
 				}
 			}
 		}
