@@ -11,27 +11,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var uni_pages__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uni-pages */ 1);
 /* harmony import */ var uni_pages__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uni_pages__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ 2);
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ 7);
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ 6);
+/* harmony import */ var _wxcomponents_vant_dist_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wxcomponents/@vant/dist/overlay */ 18);
+/* harmony import */ var _wxcomponents_vant_dist_loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./wxcomponents/@vant/dist/loading */ 21);
 
-wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 
 
 
-var Overlay = function Overlay() {
-  __webpack_require__.e(/*! require.ensure | wxcomponents/@vant/dist/overlay/index */ "common/vendor").then((function () {
-    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/overlay */ 93));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-
-var Loading = function Loading() {
-  __webpack_require__.e(/*! require.ensure | wxcomponents/@vant/dist/loading/index */ "common/vendor").then((function () {
-    return resolve(__webpack_require__(/*! ./wxcomponents/@vant/dist/loading */ 96));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
 
 var app = Object(vue__WEBPACK_IMPORTED_MODULE_1__["createApp"])(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-app.component('van-overlay', Overlay);
-app.component('van-loading', Loading); // @ts-ignore
+app.component('van-overlay', _wxcomponents_vant_dist_overlay__WEBPACK_IMPORTED_MODULE_3__["default"]);
+app.component('van-loading', _wxcomponents_vant_dist_loading__WEBPACK_IMPORTED_MODULE_4__["default"]); // @ts-ignore
 
 app.mount('#app');
 
@@ -41,8 +31,7 @@ app.mount('#app');
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */,
-/* 7 */
+/* 6 */
 /*!*********************!*\
   !*** ./src/App.vue ***!
   \*********************/
@@ -51,7 +40,7 @@ app.mount('#app');
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _App_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=ts& */ 8);
+/* harmony import */ var _App_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=ts& */ 7);
 /* empty/unused harmony star reexport *//* harmony import */ var _App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ 15);
 /* harmony import */ var _node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 17);
 var render, staticRenderFns, recyclableRender, components
@@ -80,7 +69,7 @@ component.options.__file = "App.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
-/* 8 */
+/* 7 */
 /*!**********************************************!*\
   !*** ./src/App.vue?vue&type=script&lang=ts& ***!
   \**********************************************/
@@ -89,11 +78,11 @@ component.options.__file = "App.vue"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_ts_loader_index_js_ref_14_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_2_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_App_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/babel-loader/lib!../node_modules/ts-loader??ref--14-1!../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-2!../node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./App.vue?vue&type=script&lang=ts& */ 9);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_ts_loader_index_js_ref_14_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_2_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_App_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/babel-loader/lib!../node_modules/ts-loader??ref--14-1!../node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-2!../node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!../node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!../node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./App.vue?vue&type=script&lang=ts& */ 8);
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_ts_loader_index_js_ref_14_1_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_14_2_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_App_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--14-2!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./src/App.vue?vue&type=script&lang=ts& ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -103,7 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
-/* harmony import */ var _utils_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/User */ 10);
+/* harmony import */ var _utils_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/User */ 9);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_0__["defineComponent"])({
@@ -113,6 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 }));
 
 /***/ }),
+/* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */,
