@@ -210,7 +210,6 @@ export const getWeatherInfo = async (): Promise<WeatherDataType[] | null> => {
         const data = isResponseString(await getWeather(longitude, latitude))
         // 获得当前天气信息
         const nowData = isResponseString(await getWeather(longitude, latitude, true))
-
         data.daily[0].name = addressData.location[0].name
         data.daily[0].now = nowData.now.temp
         data.daily[0].text = nowData.now.text

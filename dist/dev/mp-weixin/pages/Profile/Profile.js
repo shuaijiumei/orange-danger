@@ -149,6 +149,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(uni) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ 2);
 /* harmony import */ var _utils_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/User */ 9);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/utils */ 14);
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_0__["defineComponent"])({
@@ -158,12 +160,16 @@ __webpack_require__.r(__webpack_exports__);
     var userNickName = Object(vue__WEBPACK_IMPORTED_MODULE_0__["ref"])('点击获取头像、昵称');
 
     var handleClickGetUserProfile = function handleClickGetUserProfile() {
+      uni.getSetting({
+        success: function success(res) {
+          console.log(res);
+        }
+      });
       Object(_utils_User__WEBPACK_IMPORTED_MODULE_1__["getUserProfile"])().then(function (res) {
-        console.log(res);
         imgSrc.value = res.userInfo.avatarUrl;
         userNickName.value = res.userInfo.nickName;
       }).catch(function (e) {
-        console.log(e);
+        Object(_utils__WEBPACK_IMPORTED_MODULE_2__["showError"])(e.msg);
       });
     }; // 工具栏列表
 

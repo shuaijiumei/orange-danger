@@ -51,7 +51,7 @@ export const useHttp = <T, P>(config: RequestOptionsBetter<T>, fun?: Function):H
   const data = ref<P | null>(null)
 
   http(config).then(res => {
-    // console.log(res)
+    console.log(res)
     if (isResponseOk(res.data)) {
       data.value = isResponseString(res.data)
       if (fun instanceof Function) {
@@ -63,9 +63,8 @@ export const useHttp = <T, P>(config: RequestOptionsBetter<T>, fun?: Function):H
         .catch(err => {
           console.log(err)
           // 弹出错误提示文案
-// --------------------------------------todo--------------------------------------------------------------
           uni.showToast({
-            title: 'err.msg',
+            title: err?.msg || '出错啦',
             icon: 'error'
           })
         })

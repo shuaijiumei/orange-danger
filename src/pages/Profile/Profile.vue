@@ -40,6 +40,7 @@ import {
   ref
 } from 'vue'
 import {getUserProfile} from "@/utils/User";
+import {showError} from "@/utils";
 
 export default defineComponent({
   name: 'Profile',
@@ -49,12 +50,17 @@ export default defineComponent({
     const userNickName = ref<string>('点击获取头像、昵称')
 
     const handleClickGetUserProfile = () => {
+      uni.getSetting({
+        success: res => {
+          console.log(res)
+        }
+      })
+
       getUserProfile().then(res => {
-        console.log(res)
         imgSrc.value = res.userInfo.avatarUrl
         userNickName.value = res.userInfo.nickName
       }).catch(e => {
-        console.log(e)
+        showError(e.msg)
       })
     }
 

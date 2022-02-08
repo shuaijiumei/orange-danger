@@ -1,7 +1,7 @@
 <template>
     <swiper class="swiper" indicator-dots autoplay>
       <swiper-item>
-        <img src="@/static/1.jpg"  mode='scaleToFill' alt="1">
+        <img src="@/static/1.png"  mode='scaleToFill' alt="1">
       </swiper-item>
       <swiper-item>
         <img src="@/static/2.png" mode="scaleToFill" alt="2">
