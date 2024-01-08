@@ -48,5 +48,8 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {
+    "van-overlay": "/wxcomponents/@vant/dist/overlay/index",
+    "van-loading": "/wxcomponents/@vant/dist/loading/index"
+  }
 }
